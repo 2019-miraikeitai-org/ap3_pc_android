@@ -14,13 +14,6 @@ import kotlinx.android.synthetic.main.fragment_notification.*
 
 class FavoriteFragment : Fragment(){
 
-    /*
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_favorite, container, false)
-        return view
-    }
-    */
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -52,7 +45,7 @@ class ListItem(val name: String){
 
 data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
 
-class  CustomArrayAdapter: ArrayAdapter<ListItem> {
+class  CustomArrayAdapter: ArrayAdapter<ListItem>{
     private var inflater: LayoutInflater? = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
     constructor(context: Context, resource: Int): super(context, resource)
 
