@@ -11,10 +11,10 @@
             android:orientation="vertical"
             android:descendantFocusability="blocksDescendants">
 
-        <!--TextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="144dp"
-            android:text=" "/-->
+            android:text=" "/>
 
         <ListView
                 android:id="@+id/list_favorite"

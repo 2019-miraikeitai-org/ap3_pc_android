@@ -25,6 +25,8 @@ import android.net.Uri
 import android.provider.MediaStore.Images.Media.getBitmap
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
 import java.io.IOException
 
 
@@ -42,9 +44,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.fragment_mypage)
 
-
-
-
     }
 
 
@@ -52,6 +51,10 @@ class MypageFragment : Fragment(), View.OnClickListener{
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
+
+        //view.button.setOnClickListener {
+        //    Navigation.findNavController(it).navigate(R.id.action_to_regist1)
+        //}
         return view
     }
 
@@ -63,9 +66,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
         make_before.setOnClickListener(this)
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
-
-
-
 
 
 
@@ -114,11 +114,13 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 aromab.setImageResource(R.drawable.aromaa)
             }
             R.id.add_button -> {
+
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
 
                 intent.type = "image/*"
                 startActivityForResult(intent, READ_REQUEST_CODE)
+                Navigation.findNavController(view).navigate(R.id.action_to_regist1)
             }
         }
     }

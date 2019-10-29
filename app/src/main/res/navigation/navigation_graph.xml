@@ -1,23 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/navigation_graph"
             app:startDestination="@id/navigation_home">
+
 
     <custom_fragment android:id="@+id/navigation_home"
               android:name="com.example.pc.HomeFragment"
               android:label="HomeFragment"/>
 
+
     <custom_fragment android:id="@+id/navigation_notification"
               android:name="com.example.pc.NotificationFragment"
               android:label="NotificationFragment"/>
+
 
     <custom_fragment android:id="@+id/navigation_favorite"
               android:name="com.example.pc.FavoriteFragment"
               android:label="FavoriteFragment"/>
 
+
     <custom_fragment android:id="@+id/navigation_mypage"
               android:name="com.example.pc.MypageFragment"
-              android:label="MypageFragment"/>
+              android:label="MypageFragment">
+        <action
+                android:id="@+id/action_to_regist1"
+                app:destination="@id/registFragment1" />
+    </custom_fragment>
+
+
+
+
+    <custom_fragment
+            android:id="@+id/registFragment1"
+            android:name="com.example.pc.MypageRegistFragment1"
+            android:label="fragment_first"
+            tools:layout="@layout/fragment_mypageregist1" >
+        <action
+                android:id="@+id/action_regist1_to_regist2"
+                app:destination="@id/registFragment2" />
+    </custom_fragment>
+
+    <custom_fragment
+            android:id="@+id/registFragment2"
+            android:name="com.example.pc.MypageRegistFragment2"
+            android:label="fragment_third"
+            tools:layout="@layout/fragment_mypageregist2">
+        <action
+                android:id="@+id/action_to_mypage"
+                app:destination="@id/navigation_mypage" />
+    </custom_fragment>
 
 </navigation>
