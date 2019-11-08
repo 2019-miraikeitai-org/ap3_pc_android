@@ -23,32 +23,45 @@
     <custom_fragment android:id="@+id/navigation_mypage"
               android:name="com.example.pc.MypageFragment"
               android:label="MypageFragment">
-        <action
-                android:id="@+id/action_to_regist1"
-                app:destination="@id/registFragment1" />
+
+        <action android:id="@+id/action_mypage_to_regist1"
+                app:destination="@id/MypageRegistFragment1"/>
+        <argument android:name="content"
+                  app:argType="string"/>
+
+
+    </custom_fragment>
+
+    <custom_fragment android:id="@+id/MypageRegistFragment1"
+                     android:name="com.example.pc.MypageRegistFragment1"
+                     android:label="MypageRegistFragment1"
+                     tools:layout="@layout/fragment_mypageregist1" >
+        <action android:id="@+id/action_regist1_to_mypage"
+                app:destination="@id/navigation_mypage"/>
+
+
+
     </custom_fragment>
 
 
 
+<!--
 
-    <custom_fragment
+    <fragment
             android:id="@+id/registFragment1"
             android:name="com.example.pc.MypageRegistFragment1"
             android:label="fragment_first"
             tools:layout="@layout/fragment_mypageregist1" >
         <action
-                android:id="@+id/action_regist1_to_regist2"
-                app:destination="@id/registFragment2" />
-    </custom_fragment>
-
-    <custom_fragment
-            android:id="@+id/registFragment2"
-            android:name="com.example.pc.MypageRegistFragment2"
-            android:label="fragment_third"
-            tools:layout="@layout/fragment_mypageregist2">
-        <action
                 android:id="@+id/action_to_mypage"
-                app:destination="@id/navigation_mypage" />
-    </custom_fragment>
+                app:destination="@+id/MypageFragment" />
+    </fragment>
+
+    -->
+
+
+
+
+
 
 </navigation>

@@ -6,26 +6,43 @@
                                                     xmlns:app="http://schemas.android.com/apk/res-auto"
                                                     tools:context=".MypageRegistFragment2">
 
-    <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="サイズ等選択"
-            android:textSize="32sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+
+        <TextView
+                android:id="@+id/f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FOR WHOM?"
+                android:textSize="15sp"/>
+
+        <Button
+                android:id="@+id/tee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TEE"
+                android:textSize="18sp"
+                android:layout_below="@+id/f" />
+        <Button
+                android:id="@+id/shirt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHIRT"
+                android:textSize="18sp"
+                android:layout_toRightOf="@+id/tee" />
+
+
+
+
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

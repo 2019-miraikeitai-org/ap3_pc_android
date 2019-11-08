@@ -6,26 +6,311 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              tools:context=".MypageRegistFragment1">
 
-    <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="コメント入力画面"
-            android:textSize="32sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+            <ImageView
+                    android:id="@+id/picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:scaleType="center"
+                    tools:src="@tools:sample/avatars[12]"/>
+
+
+
+
+            <ImageView
+                    android:id="@+id/speechballoon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="30dp"
+                    tools:src="@drawable/speechballoon"/>
+
+
+            <ImageButton
+                    android:id="@+id/tops_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="190dp"
+                    android:layout_marginTop="45dp"
+                    android:background="#00000000"
+                    android:src="@drawable/topsb"/>
+
+            <ImageButton
+                    android:id="@+id/bottoms_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tops_before"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/tops_before"
+                    android:background="#00000000"
+                    android:src="@drawable/bottomsb"/>
+
+            <ImageButton
+                    android:id="@+id/acc_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tops_before"
+                    android:layout_alignLeft="@+id/tops_before"
+                    android:layout_marginTop="20dp"
+                    android:background="#00000000"
+                    android:src="@drawable/accb"/>
+
+            <ImageButton
+                    android:id="@+id/more_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/acc_before"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/acc_before"
+                    android:background="#00000000"
+                    android:src="@drawable/moreb"/>
+
+            <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="250dp"
+                    android:text="コーディネートのポイント"
+                    android:textSize="15sp"/>
+
+            <EditText
+                    android:id="@+id/edit_text"
+                    android:layout_below="@id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" />
+
+
+            <ImageButton
+                    android:id="@+id/draft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="500dp"
+                    android:background="#00000000"
+                    android:src="@drawable/draftbutton"/>
+
+
+            <ImageButton
+                    android:id="@+id/regist_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_toRightOf="@+id/draft"
+                    android:background="#00000000"
+                    android:src="@drawable/regist"/>
+
+
+
+        </RelativeLayout>
+
+
+
+    <SlidingDrawer
+            android:id="@+id/slidingdrawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="0"
+
+            android:content="@+id/relative"
+            android:handle="@id/handle">
+
+        <Button
+                android:id="@+id/handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tops"
+                android:textSize="18sp"/>
+
+        <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/forwhom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FOR WHOM?"
+                    android:textSize="15sp"/>
+
+            <Button
+                    android:id="@+id/tee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEE"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/forwhom" />
+            <Button
+                    android:id="@+id/shirt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tee"
+                    android:text="SHIRT"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/tee" />
+
+            <Button
+                    android:id="@+id/hoodie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tee"
+                    android:text="hoodie"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/shirt" />
+
+
+            <Button
+                    android:id="@+id/knit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/tee"
+                    android:text="knit"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/tee" />
+
+            <Button
+                    android:id="@+id/blouse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/knit"
+                    android:text="blouse"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/knit" />
+
+            <Button
+                    android:id="@+id/sweater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/knit"
+                    android:text="sweater"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/blouse" />
+
+            <Button
+                    android:id="@+id/sleeveless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/knit"
+                    android:text="sleeveless"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/knit" />
+
+            <Button
+                    android:id="@+id/other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/sleeveless"
+                    android:text="..."
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/sleeveless" />
+
+            <TextView
+                    android:id="@+id/size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="size"
+                    android:textSize="15sp"
+                    android:layout_below="@+id/sleeveless"/>
+
+            <Button
+                    android:id="@+id/xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xs"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/size" />
+
+            <Button
+                    android:id="@+id/s"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/xs"
+                    android:text="s"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/xs" />
+
+            <Button
+                    android:id="@+id/m"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/xs"
+                    android:text="m"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/s" />
+
+            <Button
+                    android:id="@+id/l"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/xs"
+                    android:text="l"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/m" />
+
+            <Button
+                    android:id="@+id/xl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/xs"
+                    android:text="xl"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/l" />
+
+            <TextView
+                    android:id="@+id/brands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="brands"
+                    android:textSize="15sp"
+                    android:layout_below="@+id/xs"/>
+
+            <EditText
+                    android:id="@+id/brands_text"
+                    android:layout_below="@id/brands"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="price"
+                    android:textSize="15sp"
+                    android:layout_below="@+id/brands_text"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+    </SlidingDrawer>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

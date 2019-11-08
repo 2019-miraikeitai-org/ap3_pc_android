@@ -2,49 +2,70 @@ package com.example.pc
 
 
 import android.app.Activity
-import android.app.PendingIntent.getActivity
-import android.content.ContentResolver
-import android.content.Context
-import android.media.Image
 import android.os.Bundle
-//import android.support.annotation.IdRes
-//import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_mypage.*
 import android.widget.ImageButton
-import android.widget.Toast
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
-import android.provider.MediaStore
-import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore.Images.Media.getBitmap
+import android.widget.TextView
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_mypage.imageView
+import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
+import kotlinx.android.synthetic.main.fragment_mypageregist2.*
+import kotlinx.android.synthetic.main.list_item.*
 import java.io.IOException
+//import android.R
+
+
+//import android.R
+
+
 
 
 class MypageFragment : Fragment(), View.OnClickListener{
 
     private val READ_REQUEST_CODE =42
 
+    //private var position = ""
 
+    private val args: MypageFragmentArgs by navArgs()
 
     //コピー用の配列を用意
     //var btn = arrayOfNulls<ImageButton>(4)
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.fragment_mypage)
 
+
+
+        // Bundleを取得する
+        //val bundle = arguments
+        // Bundleがセットされていたら値を受け取る
+        //if (bundle != null) {
+        //position = bundle.getString("KEY_POSITION")
+        //}
+
+
     }
+
+
 
 
 
@@ -52,9 +73,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
-        //view.button.setOnClickListener {
-        //    Navigation.findNavController(it).navigate(R.id.action_to_regist1)
-        //}
+
         return view
     }
 
@@ -66,6 +85,11 @@ class MypageFragment : Fragment(), View.OnClickListener{
         make_before.setOnClickListener(this)
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
+
+
+
+
+
 
 
 
@@ -90,8 +114,10 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
 
+
 //服とかメイクとか選ぶ時のボタン操作
     override fun onClick(view: View) {
+
 
 
         when (view.id){
@@ -119,8 +145,32 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
 
                 intent.type = "image/*"
+                //フラグメント移動
+                findNavController().navigate(R.id.action_mypage_to_regist1)
+
+
+
+
+                //結果の画像取得
                 startActivityForResult(intent, READ_REQUEST_CODE)
-                Navigation.findNavController(view).navigate(R.id.action_to_regist1)
+                //startActivityForResult 終了後 onActivityResult が呼ばれて、
+                //「結果コード、呼び出し時のID、結果」が渡される
+                //val comment=view.findViewById(R.id.comment) as TextView
+                //comment.setText(position)
+
+
+                //comment.text = args.content
+
+                //val textView = view.findViewById(R.id.comment) as TextView
+                // テキストを設定して表示
+                //textView.setText(args.content)
+
+
+
+
+
+
+
             }
         }
     }
