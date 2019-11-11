@@ -80,6 +80,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         make_before.setOnClickListener(this)
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
+        set_button.setOnClickListener(this)
 
 
 
@@ -119,6 +120,11 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
         when (view.id){
+
+            R.id.set_button -> {
+                findNavController().navigate(R.id.action_navigation_mypage_to_navigation_notification)
+            }
+
             R.id.cloth_before-> {
                 val clothb = view.findViewById(R.id.cloth_before)  as ImageButton
                 clothb.setImageResource(R.drawable.clotha)
@@ -139,9 +145,11 @@ class MypageFragment : Fragment(), View.OnClickListener{
             }
             R.id.add_button -> {
 
-                val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-                intent.addCategory(Intent.CATEGORY_OPENABLE)
+               // val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+                //intent.addCategory(Intent.CATEGORY_OPENABLE)
 
+
+               // intent.type = "image/*"
                 intent.type = "image/*"
                 print(intent.getData())
                 //フラグメント移動
@@ -155,7 +163,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
                 //結果の画像取得
-                startActivityForResult(intent, READ_REQUEST_CODE)
+               // startActivityForResult(intent, READ_REQUEST_CODE)
                 //startActivityForResult 終了後 onActivityResult が呼ばれて、
                 //「結果コード、呼び出し時のID、結果」が渡される
                 //val comment=view.findViewById(R.id.comment) as TextView
