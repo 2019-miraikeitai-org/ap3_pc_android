@@ -121,7 +121,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         when (view.id){
             R.id.cloth_before-> {
                 val clothb = view.findViewById(R.id.cloth_before)  as ImageButton
-                clothb.setBackgroundResource(R.drawable.clotha)
+                clothb.setImageResource(R.drawable.clotha)
             }
 
             R.id.hair_before -> {
@@ -131,7 +131,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
             R.id.make_before -> {
                 val makeb = view.findViewById(R.id.make_before) as ImageButton
-                makeb.setBackgroundResource(R.drawable.makea)
+                makeb.setImageResource(R.drawable.makea)
             }
             R.id.aroma_before -> {
                 val aromab = view.findViewById(R.id.aroma_before) as ImageButton
@@ -143,6 +143,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
 
                 intent.type = "image/*"
+                print(intent.getData())
                 //フラグメント移動
                 findNavController().navigate(R.id.action_mypage_to_regist1)
 
