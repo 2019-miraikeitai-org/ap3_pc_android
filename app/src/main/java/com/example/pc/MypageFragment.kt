@@ -163,7 +163,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
                 //これをコメントアウトすると動く。値渡しはできない。
-                comment.text = args.content
+                //comment.text = args.content
 
                 //val textView = view.findViewById(R.id.comment) as TextView
                 // テキストを設定して表示
@@ -171,7 +171,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 //val comment = MypageFragmentArgs.fromBundle(arguments ?: return).content
                 //val commentv = TextView(this)
                 //commentv.text=comment
-                //if (!text.equals("")){
+                //if (!text.equals(""))
                 //    textView.setText(text)
                 //}
 
