@@ -43,8 +43,6 @@ class ListItem(val name: String){
     }
 }
 
-data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
-
 class  CustomArrayAdapter: ArrayAdapter<ListItem>{
     private var inflater: LayoutInflater? = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
     constructor(context: Context, resource: Int): super(context, resource)

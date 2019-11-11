@@ -1,5 +1,6 @@
 package com.example.pc
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,19 +9,11 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_notification.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class NotificationFragment : Fragment(){
-
-
-    /*
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_notification, container, false)
-        return view
-    }
-    */
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -28,36 +21,57 @@ class NotificationFragment : Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val list = ArrayList<String>()
+        super.onViewCreated(view, savedInstanceState)
 
-        list.add("first text")
-        val adapter = ArrayAdapter<String>(this.requireContext(), android.R.layout.simple_list_item_1, list)
-        list_notify.adapter = adapter
+        val arrayAdapter = Custom2ArrayAdapter(this.requireContext(), 0).apply {
+            add(ListItem2("Name", "Time"))
+        }
+        val listView: ListView = view.findViewById(R.id.list_notify)
+        listView.adapter = arrayAdapter
 
         button.setOnClickListener {
-            list.add("add text")
-            setListViewHeightBasedOnChildren(list_notify)
+            fun getToday(): String{
+                val date = Date()
+                val format = SimpleDateFormat("yyyy/MM/dd/HH:mm", Locale.getDefault())
+                return format.format(date)
+            }
+            arrayAdapter.add(ListItem2("name", getToday()))
+            listView.adapter = arrayAdapter
         }
     }
 }
 
-private fun setListViewHeightBasedOnChildren(list: ListView) {
-    val adapter = list.adapter
 
-    var totalHeight = 0
-    var desiredWidth = View.MeasureSpec.makeMeasureSpec(list.width, View.MeasureSpec.AT_MOST)
+class Custom2ArrayAdapter: ArrayAdapter<ListItem2> {
+    private var inflater: LayoutInflater? = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
+    constructor(context: Context, resource: Int): super(context, resource)
 
-    for (item in 0 until adapter.count) {
-        val listItem = adapter.getView(item, null, list)
-        listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
-        totalHeight += listItem.measuredHeight
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var viewHolder: ViewHolder
+        var view = convertView
+
+        if (view == null){
+            view = inflater!!.inflate(R.layout.list_item, parent, false)
+            viewHolder = ViewHolder(
+                view.findViewById(R.id.item_my_image),
+                view.findViewById(R.id.item_name),
+                view.findViewById(R.id.item_time)
+            )
+            view.tag = viewHolder
+        } else {
+            viewHolder = view.tag as ViewHolder
+        }
+
+        val listItem = getItem(position)
+//        viewHolder.picture
+        viewHolder.name.text = listItem.name
+        viewHolder.description.text = listItem.description
+
+        return view!!
+//        return super.getView(position, convertView, parent)
     }
 
-    val params = list.layoutParams
-    params.height = totalHeight + (list.dividerHeight * (adapter.count - 1))
-    list.layoutParams = params
-    list.requestLayout()
+    override fun isEnabled(position: Int): Boolean {
+        return false
+    }
 }
-
-
-

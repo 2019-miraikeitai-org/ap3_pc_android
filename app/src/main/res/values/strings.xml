@@ -4,4 +4,8 @@
     <string name="title_notification">Dashboard</string>
     <string name="title_favorite">Notifications</string>
     <string name="title_mypage">Add</string>
+
+    <string name="Time">Time</string>
+    <string name="Name">Name</string>
+    <string name="Clap">からCLAPが届きました。</string>
 </resources>

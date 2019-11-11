@@ -11,6 +11,7 @@ import com.example.pc.R
 import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Context
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavDestination
 
@@ -137,3 +138,11 @@ fun main() {
 
 }
 
+class ListItem2(val name: String){
+    var description: String = "No description."
+    constructor(name: String, description: String): this(name){
+        this.description = description
+    }
+}
+
+data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
