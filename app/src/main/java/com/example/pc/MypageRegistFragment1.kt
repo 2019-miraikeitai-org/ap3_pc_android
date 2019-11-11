@@ -87,6 +87,9 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                 val action =MypageRegistFragment1Directions.actionRegist1ToMypage(content)
                 findNavController().navigate(action)
 
+
+
+
                 //comment.text = edit_text.getSelectedItem() as String
 
                 //マイページへ遷移
