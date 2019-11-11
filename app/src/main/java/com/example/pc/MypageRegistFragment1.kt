@@ -55,7 +55,7 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
         when (view.id){
             R.id.tops_before-> {
                 val topsb = view.findViewById(R.id.tops_before)  as ImageButton
-                topsb.setBackgroundResource(R.drawable.topsa)
+                topsb.setImageResource(R.drawable.topsa)
                 //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
             }
 
@@ -67,7 +67,7 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
             R.id.acc_before -> {
                 val accb = view.findViewById(R.id.acc_before) as ImageButton
-                accb.setBackgroundResource(R.drawable.acca)
+                accb.setImageResource(R.drawable.acca)
                 //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
             }
             R.id.more_before -> {
