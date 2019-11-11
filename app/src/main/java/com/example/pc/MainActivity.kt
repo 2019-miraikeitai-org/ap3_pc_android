@@ -30,8 +30,6 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.github.kittinunf.fuel.httpPost
 import com.google.gson.Gson
 
-
-
 data class Ok(val user_id: Int)
 data class json(val user_id: Int, val name:String, val age :Int)
 data class json2(val user_name: String)
@@ -127,8 +125,6 @@ fun main() {
         "http://160.16.103.99/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->
         }
     }
-
-
 
     //Serialising it to Json using Gson
     //val personJson = Gson().toJson(person)
