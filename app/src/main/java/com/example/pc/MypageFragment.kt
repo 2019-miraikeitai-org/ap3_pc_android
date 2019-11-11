@@ -21,6 +21,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_mypage.imageView
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.*
@@ -40,9 +41,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
     //コピー用の配列を用意
     //var btn = arrayOfNulls<ImageButton>(4)
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
