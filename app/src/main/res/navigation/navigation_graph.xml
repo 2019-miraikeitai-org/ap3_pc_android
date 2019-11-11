@@ -12,7 +12,11 @@
 
     <custom_fragment android:id="@+id/navigation_notification"
               android:name="com.example.pc.NotificationFragment"
-              android:label="NotificationFragment"/>
+              android:label="NotificationFragment">
+        <action
+            android:id="@+id/action_navigation_notification_to_navigation_mypage"
+            app:destination="@id/navigation_mypage" />
+    </custom_fragment>
 
 
     <custom_fragment android:id="@+id/navigation_favorite"
@@ -29,6 +33,9 @@
         <argument android:name="content"
                   app:argType="string"
                   app:nullable="true"/>
+        <action
+            android:id="@+id/action_navigation_mypage_to_navigation_notification"
+            app:destination="@id/navigation_notification" />
 
 
     </custom_fragment>
