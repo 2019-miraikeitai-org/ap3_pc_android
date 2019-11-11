@@ -44,6 +44,16 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation 'com.edmodo:rangebar:1.0.0'
 
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'com.github.kittinunf.fuel:fuel:1.15.1'
+    implementation 'com.github.kittinunf.fuel:fuel-android:1.15.1'
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8+"
+    implementation 'com.github.kittinunf.fuel:fuel-gson:1.12.0' //for Gson support
+    implementation 'com.google.code.gson:gson:2.8.2' //Gson
+    implementation 'androidx.core:core-ktx:1.1.0'
+
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //implementation "android.arch.navigation:navigation-fragment:1.0.0"
     //implementation "android.arch.navigation:navigation-ui:1.0.0"
     //implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
