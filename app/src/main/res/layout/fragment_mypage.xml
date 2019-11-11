@@ -175,7 +175,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_below="@id/imageView"
-                    android:text="a"
+                    android:layout_marginTop="20dp"
+                    android:text="今回はALLユニクロコーデです！"
             />
 
         </RelativeLayout>
