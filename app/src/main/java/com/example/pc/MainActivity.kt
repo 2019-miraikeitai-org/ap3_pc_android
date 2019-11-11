@@ -19,7 +19,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setupWithNavController(nav_view, navController)
+
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
 
