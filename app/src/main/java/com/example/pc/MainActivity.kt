@@ -19,6 +19,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import kotlinx.android.synthetic.main.fragment_home.*
 
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.result.Result;
@@ -43,8 +44,6 @@ data class User(val user_id: Int, val name: String, val age: Int, val gender: St
 
 
 
-
-
 class MainActivity : AppCompatActivity() {
 
 
@@ -65,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setupWithNavController(nav_view, navController)
+
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
 

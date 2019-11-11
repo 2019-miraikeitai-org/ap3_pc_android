@@ -144,7 +144,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
                 intent.type = "image/*"
                 //フラグメント移動
-                //findNavController().navigate(R.id.action_mypage_to_regist1)
+                findNavController().navigate(R.id.action_mypage_to_regist1)
 
 
 

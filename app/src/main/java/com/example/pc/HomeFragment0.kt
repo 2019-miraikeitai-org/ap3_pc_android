@@ -13,4 +13,5 @@ class TabLayoutActivity : AppCompatActivity() {
         pager.adapter = TabAdapter(supportFragmentManager,this)
         tab_layout.setupWithViewPager(pager)
     }
+
 }
