@@ -23,15 +23,13 @@
                     tools:src="@tools:sample/avatars[12]"/>
 
 
-
-
             <ImageView
                     android:id="@+id/speechballoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:layout_marginLeft="30dp"
-                    tools:src="@drawable/speechballoon"/>
+                    android:layout_marginLeft="162dp"
+                    android:src="@drawable/speechballoon"/>
 
 
             <ImageButton
@@ -118,7 +116,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_column="0"
-
             android:content="@+id/relative"
             android:handle="@id/handle">
 
@@ -132,35 +129,45 @@
         <RelativeLayout
                 android:id="@+id/relative"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/cardview_light_background"
+        >
 
             <TextView
                     android:id="@+id/forwhom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="FOR WHOM?"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15sp"/>
 
             <Button
                     android:id="@+id/tee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:text="TEE"
                     android:textSize="18sp"
-                    android:layout_below="@+id/forwhom" />
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/forwhom"
+                    android:layout_toLeftOf="@+id/shirt"
+            />
             <Button
                     android:id="@+id/shirt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_alignTop="@+id/tee"
                     android:text="SHIRT"
                     android:textSize="18sp"
-                    android:layout_toRightOf="@+id/tee" />
+                     />
 
             <Button
                     android:id="@+id/hoodie"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/tee"
                     android:text="hoodie"
                     android:textSize="18sp"
@@ -169,26 +176,30 @@
 
             <Button
                     android:id="@+id/knit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignLeft="@+id/tee"
                     android:text="knit"
                     android:textSize="18sp"
+                    android:layout_toLeftOf="@+id/blouse"
                     android:layout_below="@+id/tee" />
 
             <Button
                     android:id="@+id/blouse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/knit"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:text="blouse"
                     android:textSize="18sp"
-                    android:layout_toRightOf="@+id/knit" />
+                     />
 
             <Button
                     android:id="@+id/sweater"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/knit"
                     android:text="sweater"
                     android:textSize="18sp"
@@ -196,69 +207,79 @@
 
             <Button
                     android:id="@+id/sleeveless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignLeft="@+id/knit"
                     android:text="sleeveless"
+                    android:layout_toLeftOf="@+id/other"
                     android:textSize="18sp"
                     android:layout_below="@+id/knit" />
 
             <Button
                     android:id="@+id/other"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/sleeveless"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
                     android:text="..."
                     android:textSize="18sp"
-                    android:layout_toRightOf="@+id/sleeveless" />
+                     />
 
             <TextView
                     android:id="@+id/size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="size"
+                    android:text="SIZE"
                     android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_below="@+id/sleeveless"/>
 
             <Button
                     android:id="@+id/xs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
                     android:text="xs"
                     android:textSize="18sp"
-                    android:layout_below="@+id/size" />
+                    android:layout_below="@+id/size"
+                    android:layout_toLeftOf="@+id/s"/>
 
             <Button
                     android:id="@+id/s"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/xs"
                     android:text="s"
                     android:textSize="18sp"
-                    android:layout_toRightOf="@+id/xs" />
+                    android:layout_marginLeft="5dp"
+                    android:layout_toLeftOf="@+id/m"  />
 
             <Button
                     android:id="@+id/m"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/xs"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
                     android:text="m"
-                    android:textSize="18sp"
-                    android:layout_toRightOf="@+id/s" />
+                    android:textSize="18sp"/>
 
             <Button
                     android:id="@+id/l"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/xs"
                     android:text="l"
                     android:textSize="18sp"
+                    android:layout_marginRight="5dp"
                     android:layout_toRightOf="@+id/m" />
 
             <Button
                     android:id="@+id/xl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="70dp"
+                    android:layout_height="45dp"
                     android:layout_alignTop="@+id/xs"
                     android:text="xl"
                     android:textSize="18sp"
@@ -268,7 +289,9 @@
                     android:id="@+id/brands"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="brands"
+                    android:text="BRANDS"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
                     android:textSize="15sp"
                     android:layout_below="@+id/xs"/>
 
@@ -282,9 +305,20 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="price"
+                    android:text="PRICE"
                     android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_below="@+id/brands_text"/>
+
+            <com.edmodo.rangebar.RangeBar
+                    xmlns:custom="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/rangebar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/price"
+                    android:layout_centerHorizontal="true"
+                    custom:tickCount="7" />
 
 
 

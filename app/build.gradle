@@ -16,6 +16,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    androidExtensions {
+        experimental = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -39,6 +42,7 @@ dependencies {
     def nav_version = '2.0.0'
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation 'com.edmodo:rangebar:1.0.0'
 
     //implementation "android.arch.navigation:navigation-fragment:1.0.0"
     //implementation "android.arch.navigation:navigation-ui:1.0.0"

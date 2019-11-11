@@ -23,16 +23,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_mypage.imageView
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
+import kotlinx.android.synthetic.main.fragment_mypageregist1.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
-import kotlinx.android.synthetic.main.fragment_mypageregist2.*
 import kotlinx.android.synthetic.main.list_item.*
 import java.io.IOException
-//import android.R
-
-
-//import android.R
-
-
+import java.lang.invoke.MethodHandle
 
 
 class MypageFragment : Fragment(), View.OnClickListener{
@@ -104,6 +99,9 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 try {
                     val bitmap = getBitmap(getActivity()?.getContentResolver(), uri)
                     imageView.setImageBitmap(bitmap)
+                    //val clothpicture = bitmap
+                    //val action = MypageFragmentDirections.actionMypageToRegist1(clothpicture)
+                    //findNavController().navigate(action)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
@@ -146,7 +144,11 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
                 intent.type = "image/*"
                 //フラグメント移動
-                findNavController().navigate(R.id.action_mypage_to_regist1)
+                //findNavController().navigate(R.id.action_mypage_to_regist1)
+
+
+
+
 
 
 
@@ -159,11 +161,19 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 //comment.setText(position)
 
 
+
+                //これをコメントアウトすると動く。値渡しはできない。
                 //comment.text = args.content
 
                 //val textView = view.findViewById(R.id.comment) as TextView
                 // テキストを設定して表示
-                //textView.setText(args.content)
+                //textView.text = args.content
+                //val comment = MypageFragmentArgs.fromBundle(arguments ?: return).content
+                //val commentv = TextView(this)
+                //commentv.text=comment
+                //if (!text.equals(""))
+                //    textView.setText(text)
+                //}
 
 
 

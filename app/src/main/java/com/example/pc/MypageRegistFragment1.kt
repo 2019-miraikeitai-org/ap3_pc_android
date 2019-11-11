@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
@@ -31,6 +32,11 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //val comment = activity?.findViewById(R.id.comment) as TextView
+        // R.id.reserve_2cはフラグメント1内の書き込みたいセルのid
+
+        //val edit_text = view.findViewById(R.id.edit_text) as EditText
 
         tops_before.setOnClickListener(this)
         bottoms_before.setOnClickListener(this)
@@ -80,6 +86,8 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                 // 生成されたクラスに引数を渡して遷移
                 val action =MypageRegistFragment1Directions.actionRegist1ToMypage(content)
                 findNavController().navigate(action)
+
+                //comment.text = edit_text.getSelectedItem() as String
 
                 //マイページへ遷移
                 //Navigation.findNavController(view).navigate(R.id.action_regist1_to_mypage)

@@ -164,10 +164,10 @@
 
             <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:layout_width="400dp" android:layout_height="600dp"
                     android:layout_below="@+id/add_button" android:layout_marginTop="30dp"
-                    tools:layout_editor_absoluteX="400dp"
-                    tools:layout_editor_absoluteY="600dp"
+                    android:scaleType="centerCrop"
+
                     tools:src="@tools:sample/avatars[12]"/>
 
             <TextView

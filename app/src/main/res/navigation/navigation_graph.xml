@@ -27,7 +27,8 @@
         <action android:id="@+id/action_mypage_to_regist1"
                 app:destination="@id/MypageRegistFragment1"/>
         <argument android:name="content"
-                  app:argType="string"/>
+                  app:argType="string"
+                  app:nullable="true"/>
 
 
     </custom_fragment>
@@ -35,7 +36,7 @@
     <custom_fragment android:id="@+id/MypageRegistFragment1"
                      android:name="com.example.pc.MypageRegistFragment1"
                      android:label="MypageRegistFragment1"
-                     tools:layout="@layout/fragment_mypageregist1" >
+                     tools:layout="@layout/fragment_mypageregist1">
         <action android:id="@+id/action_regist1_to_mypage"
                 app:destination="@id/navigation_mypage"/>
 
