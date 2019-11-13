@@ -14,6 +14,7 @@ import android.provider.MediaStore.Images.Media.getBitmap
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_mypage.imageView
 import java.io.IOException
 
@@ -28,9 +29,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
     //コピー用の配列を用意
     //var btn = arrayOfNulls<ImageButton>(4)
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -150,8 +148,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
                 //結果の画像取得
                 startActivityForResult(intent, READ_REQUEST_CODE)
-
-
 
                 //startActivityForResult 終了後 onActivityResult が呼ばれて、
                 //「結果コード、呼び出し時のID、結果」が渡される
