@@ -6,29 +6,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import kotlinx.android.synthetic.main.fragment_mypage.*
 import android.widget.ImageButton
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore.Images.Media.getBitmap
-import android.widget.TextView
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_mypage.imageView
-import kotlinx.android.synthetic.main.fragment_mypage.view.*
-import kotlinx.android.synthetic.main.fragment_mypageregist1.*
-import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
-import kotlinx.android.synthetic.main.list_item.*
 import java.io.IOException
-import java.lang.invoke.MethodHandle
 
 
 class MypageFragment : Fragment(), View.OnClickListener{
@@ -73,14 +61,12 @@ class MypageFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        set_button.setOnClickListener(this)
         cloth_before.setOnClickListener(this)
         hair_before.setOnClickListener(this)
         make_before.setOnClickListener(this)
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
-        set_button.setOnClickListener(this)
-
-
 
 
 
@@ -95,6 +81,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
             val uri: Uri?
             if (resultData != null) {
                 uri = resultData.data
+                System.out.println(uri)
                 try {
                     val bitmap = getBitmap(getActivity()?.getContentResolver(), uri)
                     imageView.setImageBitmap(bitmap)
@@ -123,7 +110,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 findNavController().navigate(R.id.action_navigation_mypage_to_navigation_notification)
             }
 
-            R.id.cloth_before-> {
+            R.id.cloth_before -> {
                 val clothb = view.findViewById(R.id.cloth_before)  as ImageButton
                 clothb.setImageResource(R.drawable.clotha)
             }
@@ -147,21 +134,21 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 intent.addCategory(Intent.CATEGORY_OPENABLE)
 
 
-               // intent.type = "image/*"
                 intent.type = "image/*"
-                print(intent.getData())
+
+                System.out.println("aaaaa")
+                System.out.println(intent.getData())
+
+
+
                 //フラグメント移動
                 findNavController().navigate(R.id.action_mypage_to_regist1)
 
 
 
-
-
-
-
-
                 //結果の画像取得
                 startActivityForResult(intent, READ_REQUEST_CODE)
+
                 //startActivityForResult 終了後 onActivityResult が呼ばれて、
                 //「結果コード、呼び出し時のID、結果」が渡される
                 //val comment=view.findViewById(R.id.comment) as TextView
@@ -181,9 +168,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
                 //if (!text.equals(""))
                 //    textView.setText(text)
                 //}
-
-
-
 
 
 
