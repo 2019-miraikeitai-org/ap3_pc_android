@@ -118,6 +118,7 @@ fun main() {
 
             }
         }
+
     val person = "{ \"name\": \"Yoshizaaa\", \"age\": 1538,\"gender\":\"め-す\" }"
     Fuel.post("http://160.16.103.99/users").body(person).response { request, response, result ->
         //Which results in a success
