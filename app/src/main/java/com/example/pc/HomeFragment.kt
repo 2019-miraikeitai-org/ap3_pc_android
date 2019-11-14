@@ -54,6 +54,7 @@ class HomeFragment : Fragment(){
         override fun getPageTitle(position: Int): CharSequence? {
 
             return if (position == 0) {
+              
                 "MEN"
             } else {
                 "WOMEN"
