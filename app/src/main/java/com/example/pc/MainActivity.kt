@@ -110,7 +110,7 @@ fun main() {
             }
         }
 
-    val person = "{ \"name\": \"Yoshizaaa\", \"age\": 1538,\"gender\":\"め-す\" }"
+    val person = "{ \"name\": \"Yuka\", \"age\": 3,\"gender\":\"osu\" }"
     Fuel.post("http://160.16.103.99/users").body(person).response { request, response, result ->
         //Which results in a success
         "http://160.16.103.99/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->

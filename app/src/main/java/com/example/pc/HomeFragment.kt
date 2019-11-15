@@ -9,9 +9,9 @@ import androidx.fragment.app.FragmentManager
 //import android.R
 import androidx.viewpager.widget.ViewPager
 import androidx.fragment.app.FragmentStatePagerAdapter
-
-
-
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_mypage.*
+import kotlinx.android.synthetic.main.fragment_tab1.*
 
 
 class HomeFragment : Fragment(){
@@ -31,6 +31,9 @@ class HomeFragment : Fragment(){
         viewPager.adapter = viewPagerAdapter
         return view
     }
+
+
+
 
     class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
@@ -64,15 +67,7 @@ class HomeFragment : Fragment(){
 
 }
 
-class Tab1Fragment: Fragment(){
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_tab1,container,false)
-    }
-}
 
 
 class Tab2Fragment: Fragment(){
