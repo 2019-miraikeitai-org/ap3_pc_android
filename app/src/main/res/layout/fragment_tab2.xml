@@ -13,113 +13,112 @@
 
         <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/codem1"
+                android:id="@+id/codew1"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew1"/>
 
             <ImageButton
-                android:id="@+id/codem2"
+                android:id="@+id/codew2"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem1"
+                android:layout_toRightOf="@+id/codew1"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew2"/>
 
             <ImageButton
-                android:id="@+id/codem3"
+                android:id="@+id/codew3"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem2"
+                android:layout_toRightOf="@+id/codew2"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew3"/>
 
             <ImageButton
-                android:id="@+id/codem4"
+                android:id="@+id/codew4"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_below="@+id/codem1"
+                android:layout_below="@+id/codew1"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew1"/>
             <ImageButton
-                android:id="@+id/codem5"
+                android:id="@+id/codew5"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem4"
-                android:layout_alignTop="@+id/codem4"
+                android:layout_toRightOf="@+id/codew4"
+                android:layout_alignTop="@+id/codew4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew2"/>
 
             <ImageButton
-                android:id="@+id/codem6"
+                android:id="@+id/codew6"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem5"
-                android:layout_alignTop="@+id/codem4"
+                android:layout_toRightOf="@+id/codew5"
+                android:layout_alignTop="@+id/codew4"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew3"/>
 
 
             <ImageButton
-                android:id="@+id/codem7"
+                android:id="@+id/codew7"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_below="@+id/codem4"
+                android:layout_below="@+id/codew4"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew1"/>
             <ImageButton
-                android:id="@+id/codem8"
+                android:id="@+id/codew8"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem7"
-                android:layout_alignTop="@+id/codem7"
+                android:layout_toRightOf="@+id/codew7"
+                android:layout_alignTop="@+id/codew7"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew2"/>
 
             <ImageButton
                 android:id="@+id/codem9"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem8"
-                android:layout_alignTop="@+id/codem7"
+                android:layout_toRightOf="@+id/codew8"
+                android:layout_alignTop="@+id/codew7"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codem1"/>
+                android:src="@drawable/codew3"/>
 
             <ImageButton
-                android:id="@+id/codem10"
+                android:id="@+id/codew10"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_below="@+id/codem7"
+                android:layout_below="@+id/codew7"
                 android:layout_marginTop="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"

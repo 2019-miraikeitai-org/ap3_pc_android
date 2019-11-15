@@ -9,6 +9,32 @@
               android:name="com.example.pc.HomeFragment"
               android:label="HomeFragment"/>
 
+    <custom_fragment android:id="@+id/tab1"
+                     android:name="com.example.pc.Tab1Fragment"
+                     android:label="Tab1Fragment">
+
+
+        <action android:id="@+id/action_tab1_to_home_details"
+                app:destination="@id/home_details"/>
+    </custom_fragment>
+
+    <custom_fragment android:id="@+id/tab2"
+                     android:name="com.example.pc.Tab2Fragment"
+                     android:label="Tab2Fragment">
+
+
+        <action android:id="@+id/action_tab2_to_home_details"
+                app:destination="@id/home_details"/>
+    </custom_fragment>
+
+    <custom_fragment android:id="@+id/home_details"
+                     android:name="com.example.pc.HomeDetailsFragment"
+                     android:label="HomeDetailsFragment">
+
+
+    </custom_fragment>
+
+
 
     <custom_fragment android:id="@+id/navigation_notification"
               android:name="com.example.pc.NotificationFragment"
@@ -36,8 +62,6 @@
         <action
             android:id="@+id/action_navigation_mypage_to_navigation_notification"
             app:destination="@id/navigation_notification" />
-
-
     </custom_fragment>
 
     <custom_fragment android:id="@+id/MypageRegistFragment1"
@@ -50,26 +74,5 @@
 
 
     </custom_fragment>
-
-
-
-<!--
-
-    <fragment
-            android:id="@+id/registFragment1"
-            android:name="com.example.pc.MypageRegistFragment1"
-            android:label="fragment_first"
-            tools:layout="@layout/fragment_mypageregist1" >
-        <action
-                android:id="@+id/action_to_mypage"
-                app:destination="@+id/MypageFragment" />
-    </fragment>
-
-    -->
-
-
-
-
-
 
 </navigation>

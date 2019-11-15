@@ -55,25 +55,49 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
         when (view.id){
             R.id.tops_before-> {
                 val topsb = view.findViewById(R.id.tops_before)  as ImageButton
-                topsb.setImageResource(R.drawable.topsa)
-                //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
+
+                if (trig[0]){
+                    topsb.setImageResource(R.drawable.topsa)
+                    trig[0] = false
+                } else {
+                    topsb.setImageResource(R.drawable.topsb)
+                    trig[0] = true
+                }
             }
 
             R.id.bottoms_before -> {
                 val bottomsb = view.findViewById(R.id.bottoms_before) as ImageButton
-                bottomsb.setImageResource(R.drawable.bottomsa)
-                //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
+
+                if (trig[1]){
+                    bottomsb.setImageResource(R.drawable.bottomsa)
+                    trig[1] = false
+                } else {
+                    bottomsb.setImageResource(R.drawable.bottomsb)
+                    trig[1] = true
+                }
             }
 
             R.id.acc_before -> {
                 val accb = view.findViewById(R.id.acc_before) as ImageButton
-                accb.setImageResource(R.drawable.acca)
-                //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
+
+                if (trig[2]){
+                    accb.setImageResource(R.drawable.acca)
+                    trig[2] = false
+                } else {
+                    accb.setImageResource(R.drawable.accb)
+                    trig[2] = true
+                }
             }
             R.id.more_before -> {
                 val moreb = view.findViewById(R.id.more_before) as ImageButton
-                moreb.setImageResource(R.drawable.morea)
-                //Navigation.findNavController(view).navigate(R.id.action_regist1_to_regist2)
+
+                if (trig[3]){
+                    moreb.setImageResource(R.drawable.morea)
+                    trig[3] = false
+                } else {
+                    moreb.setImageResource(R.drawable.moreb)
+                    trig[3] = true
+                }
             }
 
             R.id.regist_button -> {
