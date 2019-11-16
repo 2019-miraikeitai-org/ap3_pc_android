@@ -1,6 +1,7 @@
 package com.example.pc
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_favorite.button
+import kotlinx.android.synthetic.main.fragment_mypageregist1.*
+import kotlinx.android.synthetic.main.list_items.*
 
 
 class FavoriteFragment : Fragment(), View.OnClickListener{
@@ -27,9 +30,10 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
         hair_after.setOnClickListener(this)
         make_after.setOnClickListener(this)
         aroma_after.setOnClickListener(this)
+//        item_image.setOnClickListener(this)
 
         val arrayAdapter = CustomArrayAdapter(this.requireContext(), 0).apply {
-            add(ListItem("What's your name?", "Que j'aime à faire apprendre un nombre utile aux sages! Glorieux Archimède, artiste, ingénieur, Toi de qui Syracuse aime encore la gloire, Soit ton nom conservé par de savants grimoires! Jadis, mystérieux, un problème bloquait Tout l'admirable procèdè, l'œuvre grandiose Que Pythagore découvrit aux anciens Grecs. O quadrature! vieux tourment du Philosophe! Insoluble rondeur, trop longtemps vous avez Défié Pythagore et ses imitateurs. Comment intégrer l'espace plan circulaire? Former un triangle auquel il équivaudra? Nouvelle invention: Archimède inscrira Dedans un hexagone; appréciera son aire Fonction du rayon. Pas trop ne s'y tiendra: Dédoublera chaque élément antérieur; Toujours de l'orbe calculée approchera; Définira limite; enfin, l'arc, le limiteur De cet inquiétant cercle, ennemi trop rebelle! Profeeeseur, enseignez son problème avec zèle!"))
+            add(ListItem("What's your name?", "What do you want to convey?"))
         }
         val listView: ListView = view.findViewById(R.id.list_favorite)
 //        val header = View.inflate(this.requireContext(), R.layout.header, null)
@@ -83,6 +87,19 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
                     aromaa.setImageResource(R.drawable.aromaa)
                     trig[3] = true
                 }
+            }
+            R.id.item_image -> {
+                val itemimage = view.findViewById(R.id.item_image) as ImageButton
+                val textView: TextView = view.findViewById(R.id.item_description)
+
+                itemimage.setOnClickListener {
+                    textView.text = "iPhone XS"
+                }
+
+                /*itemimage.setOnClickListener {
+                    val intent = Intent(this.requireContext(), DetailFragment::class.java)
+                    startActivity(intent)
+                }*/
             }
         }
     }
