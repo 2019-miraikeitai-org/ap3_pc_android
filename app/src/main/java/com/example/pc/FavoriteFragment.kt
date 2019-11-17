@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_favorite.button
 import kotlinx.android.synthetic.main.fragment_mypageregist1.*
@@ -137,9 +138,14 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
         }
 
         val listItem = getItem(position)
-//        viewHolder.picture
+//        viewHolder.picture.setImageResource()
         viewHolder.name.text = listItem.name
         viewHolder.description.text = listItem.description
+        viewHolder.picture.setOnClickListener{
+//            val fragmentManager = FragmentManager
+//            val fragmentTransaction = fragmentManager.T
+
+        }
 
         return view!!
     }
