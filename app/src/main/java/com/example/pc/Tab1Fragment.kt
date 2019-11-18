@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_tab1.*
 
 class Tab1Fragment: Fragment(), View.OnClickListener{
@@ -19,6 +20,9 @@ class Tab1Fragment: Fragment(), View.OnClickListener{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(codem3);
+        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(codem5);
 
         codem1.setOnClickListener(this)
 
