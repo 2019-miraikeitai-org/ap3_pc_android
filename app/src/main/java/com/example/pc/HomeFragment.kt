@@ -71,13 +71,3 @@ class HomeFragment : Fragment(){
 
 
 
-class Tab2Fragment: Fragment(){
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_tab2,container,false)
-    }
-}

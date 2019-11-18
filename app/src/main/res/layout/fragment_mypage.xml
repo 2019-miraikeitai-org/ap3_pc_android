@@ -46,7 +46,7 @@
                     android:layout_below="@+id/id"
                     android:layout_marginTop="5dp"
                     android:gravity="center_horizontal"
-                    android:text="YURI"
+                    android:text="yuriito"
                     android:textSize="25sp"/>
 
             <TextView

@@ -22,7 +22,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew1"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codew2"
@@ -33,7 +33,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew2"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codew3"
@@ -44,7 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew3"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codew4"
@@ -55,7 +55,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew1"/>
+                tools:src="@tools:sample/avatars[12]"/>
             <ImageButton
                 android:id="@+id/codew5"
                 android:layout_width="130dp"
@@ -66,7 +66,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew2"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codew6"
@@ -77,7 +77,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center"
                 android:background="@null"
-                android:src="@drawable/codew3"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
 
             <ImageButton
@@ -89,7 +89,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew1"/>
+                tools:src="@tools:sample/avatars[12]"/>
             <ImageButton
                 android:id="@+id/codew8"
                 android:layout_width="130dp"
@@ -100,7 +100,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew2"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codem9"
@@ -112,7 +112,7 @@
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
                 android:background="@null"
-                android:src="@drawable/codew3"/>
+                tools:src="@tools:sample/avatars[12]"/>
 
             <ImageButton
                 android:id="@+id/codew10"
