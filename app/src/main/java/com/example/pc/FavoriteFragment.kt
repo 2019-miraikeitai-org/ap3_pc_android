@@ -1,6 +1,8 @@
 package com.example.pc
 
 import android.content.Context
+import android.content.Intent
+import android.graphics.Picture
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +10,11 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_favorite.button
+import kotlinx.android.synthetic.main.fragment_mypageregist1.*
+import kotlinx.android.synthetic.main.list_items.*
 
 
 class FavoriteFragment : Fragment(), View.OnClickListener{
@@ -23,25 +28,33 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //ソートを押下の処理
         cloth_after.setOnClickListener(this)
         hair_after.setOnClickListener(this)
         make_after.setOnClickListener(this)
         aroma_after.setOnClickListener(this)
+//        item_image.setOnClickListener(this)
 
+        //お気に入りリストの作成
         val arrayAdapter = CustomArrayAdapter(this.requireContext(), 0).apply {
-            add(ListItem("What's your name?", "Que j'aime à faire apprendre un nombre utile aux sages! Glorieux Archimède, artiste, ingénieur, Toi de qui Syracuse aime encore la gloire, Soit ton nom conservé par de savants grimoires! Jadis, mystérieux, un problème bloquait Tout l'admirable procèdè, l'œuvre grandiose Que Pythagore découvrit aux anciens Grecs. O quadrature! vieux tourment du Philosophe! Insoluble rondeur, trop longtemps vous avez Défié Pythagore et ses imitateurs. Comment intégrer l'espace plan circulaire? Former un triangle auquel il équivaudra? Nouvelle invention: Archimède inscrira Dedans un hexagone; appréciera son aire Fonction du rayon. Pas trop ne s'y tiendra: Dédoublera chaque élément antérieur; Toujours de l'orbe calculée approchera; Définira limite; enfin, l'arc, le limiteur De cet inquiétant cercle, ennemi trop rebelle! Profeeeseur, enseignez son problème avec zèle!"))
+            add(ListItem("What's your name?", "What do you want to convey?"))
         }
+        //お気に入りリストをUIと結びつける
         val listView: ListView = view.findViewById(R.id.list_favorite)
 //        val header = View.inflate(this.requireContext(), R.layout.header, null)
 //        listView.addHeaderView(header, null, false)
+        //お気に入りリストをUIに追加
         listView.adapter = arrayAdapter
 
+        //左上ボタンの処理
         button.setOnClickListener {
+            //お気に入りリストに情報を追加
             arrayAdapter.add(ListItem("Apple", "iPhone"))
             listView.adapter = arrayAdapter
         }
     }
 
+    //各ボタンの押下の処理
     override fun onClick(view: View?) {
         when (view?.id){
             R.id.cloth_after -> {
@@ -84,10 +97,23 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
                     trig[3] = true
                 }
             }
+            R.id.item_image -> {
+                val itemimage = view.findViewById(R.id.item_image) as ImageButton
+                val textView: TextView = view.findViewById(R.id.item_description)
+
+                itemimage.setOnClickListener {
+                    textView.text = "iPhone XS"
+                }
+
+                /*itemimage.setOnClickListener {
+                    val intent = Intent(this.requireContext(), DetailFragment::class.java)
+                    startActivity(intent)
+                }*/
+            }
         }
     }
 }
-
+//ボタンのトリガー
 val trig: Array<Boolean> = arrayOf(true, true, true, true)
 
 class ListItem(val name: String){
@@ -96,7 +122,7 @@ class ListItem(val name: String){
         this.description = description
     }
 }
-
+//お気に入りリストの構造
 class  CustomArrayAdapter: ArrayAdapter<ListItem> {
     private var inflater: LayoutInflater? =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
@@ -107,6 +133,7 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
         var viewHolder: ViewHolder
         var view = convertView
 
+        //リストの画像/名前/コメントとUIを結びつける
         if (view == null) {
             view = inflater!!.inflate(R.layout.list_items, parent, false)
             viewHolder = ViewHolder(
@@ -119,15 +146,33 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
             viewHolder = view.tag as ViewHolder
         }
 
+        //リストの画像/名前/コメントの入力
         val listItem = getItem(position)
-//        viewHolder.picture
+//        viewHolder.picture.setImageResource()
         viewHolder.name.text = listItem.name
         viewHolder.description.text = listItem.description
+        viewHolder.picture.setOnClickListener{
+//            val fragmentManager = FragmentManager
+//            val fragmentTransaction = fragmentManager.T
+
+        }
 
         return view!!
     }
 
     override fun isEnabled(position: Int): Boolean {
         return false
+    }
+}
+
+class FavListItem(val id: Int){
+    var name: String = "name"
+    var text: String = "text"
+    var pic: String = "URL"
+
+    constructor(id: Int, name: String, text: String, pic: String): this(id){
+        this.name = name
+        this.text = text
+        this.pic = pic
     }
 }
