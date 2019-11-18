@@ -99,22 +99,22 @@
 
 
             <ImageButton
-                    android:id="@+id/cloth_before"
+                    android:id="@+id/cloth_after1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/line1"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="35dp"
                     android:background="#00000000"
-                    android:src="@drawable/clothb"/>
+                    android:src="@drawable/clotha"/>
 
             <ImageButton
                     android:id="@+id/hair_before"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@+id/cloth_before"
+                    android:layout_alignTop="@+id/cloth_after1"
                     android:layout_marginLeft="15dp"
-                    android:layout_toRightOf="@+id/cloth_before"
+                    android:layout_toRightOf="@+id/cloth_after1"
                     android:background="#00000000"
                     android:src="@drawable/hairb"/>
 
@@ -142,7 +142,7 @@
                     android:id="@+id/line2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/cloth_before"
+                    android:layout_below="@+id/cloth_after1"
                     android:layout_marginTop="20dp"
                     android:scaleType="center"
                     android:src="@drawable/line"/>

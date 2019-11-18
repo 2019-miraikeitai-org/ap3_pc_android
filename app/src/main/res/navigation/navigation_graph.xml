@@ -4,6 +4,13 @@
             android:id="@+id/navigation_graph"
             app:startDestination="@id/navigation_home">
 
+    <custom_fragment android:id="@+id/fragment"
+                     android:name="com.example.pc.Fragment"
+                     android:label="Fragment">
+        <action android:id="@+id/action_fragment_to_navigation_mypage"
+                app:destination="@id/navigation_mypage"/>
+    </custom_fragment>
+
 
     <custom_fragment android:id="@+id/navigation_home"
               android:name="com.example.pc.HomeFragment"
@@ -69,7 +76,8 @@
                      android:label="MypageRegistFragment1"
                      tools:layout="@layout/fragment_mypageregist1">
         <action android:id="@+id/action_regist1_to_mypage"
-                app:destination="@id/navigation_mypage"/>
+                app:destination="@id/navigation_mypage"
+                />
 
 
 

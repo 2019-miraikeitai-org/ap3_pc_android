@@ -27,6 +27,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
     private val args: MypageFragmentArgs by navArgs()
 
+
     //コピー用の配列を用意
     //var btn = arrayOfNulls<ImageButton>(4)
 
@@ -51,7 +52,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
 
         set_button.setOnClickListener(this)
-        cloth_before.setOnClickListener(this)
+        cloth_after1.setOnClickListener(this)
         hair_before.setOnClickListener(this)
         make_before.setOnClickListener(this)
         aroma_before.setOnClickListener(this)
@@ -92,21 +93,20 @@ class MypageFragment : Fragment(), View.OnClickListener{
     override fun onClick(view: View) {
 
 
-
         when (view.id){
 
             R.id.set_button -> {
                 findNavController().navigate(R.id.action_navigation_mypage_to_navigation_notification)
             }
 
-            R.id.cloth_before -> {
-                val clothb = view.findViewById(R.id.cloth_before)  as ImageButton
+            R.id.cloth_after1 -> {
+                val clotha = view.findViewById(R.id.cloth_after1)  as ImageButton
 
                 if (trig[0]){
-                    clothb.setImageResource(R.drawable.clotha)
+                    clotha.setImageResource(R.drawable.clothb)
                     trig[0] = false
                 } else {
-                    clothb.setImageResource(R.drawable.clothb)
+                    clotha.setImageResource(R.drawable.clotha)
                     trig[0] = true
                 }
             }
@@ -153,8 +153,8 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
                 intent.type = "image/*"
 
-                System.out.println("aaaaa")
-                System.out.println(intent.getData())
+                //System.out.println("aaaaa")
+                //System.out.println(intent.getData())
 
 
 
@@ -174,6 +174,8 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
                 //これをコメントアウトすると動く。値渡しはできない。
+                //args.contentがこの時点ではnullのため
+
                 //comment.text = args.content
 
                 //val textView = view.findViewById(R.id.comment) as TextView
@@ -192,10 +194,5 @@ class MypageFragment : Fragment(), View.OnClickListener{
             }
         }
     }
-
-
-
-
-
 
 }

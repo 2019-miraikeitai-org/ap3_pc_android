@@ -310,7 +310,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_below="@+id/brands_text"/>
-
+<!--
             <com.edmodo.rangebar.RangeBar
                     xmlns:custom="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/rangebar"
@@ -319,6 +319,14 @@
                     android:layout_below="@+id/price"
                     android:layout_centerHorizontal="true"
                     custom:tickCount="7" />
+                    -->
+            <SeekBar
+                android:id="@+id/energy_seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/price"
+                android:max="100"
+                android:progress="100" />
 
 
 
