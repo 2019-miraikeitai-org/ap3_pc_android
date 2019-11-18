@@ -2,6 +2,7 @@ package com.example.pc
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Picture
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -161,5 +162,17 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
 
     override fun isEnabled(position: Int): Boolean {
         return false
+    }
+}
+
+class FavListItem(val id: Int){
+    var name: String = "name"
+    var text: String = "text"
+    var pic: String = "URL"
+
+    constructor(id: Int, name: String, text: String, pic: String): this(id){
+        this.name = name
+        this.text = text
+        this.pic = pic
     }
 }
