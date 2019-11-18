@@ -2,21 +2,12 @@ package com.example.pc
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.content.ContentResolver
-//import androidx.support.design.internal.BottomNavigationMenuView
-//import androidx.support.design.widget.BottomNavigationView
-
 import android.widget.TextView
-import com.example.pc.R
 import kotlinx.android.synthetic.main.activity_main.*
-import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavDestination
-
-import androidx.navigation.Navigation
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
@@ -119,7 +110,7 @@ fun main() {
             }
         }
 
-    val person = "{ \"name\": \"Yoshizaaa\", \"age\": 1538,\"gender\":\"め-す\" }"
+    val person = "{ \"name\": \"Yuka\", \"age\": 3,\"gender\":\"osu\" }"
     Fuel.post("http://160.16.103.99/users").body(person).response { request, response, result ->
         //Which results in a success
         "http://160.16.103.99/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->

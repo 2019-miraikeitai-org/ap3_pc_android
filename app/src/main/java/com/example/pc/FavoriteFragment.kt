@@ -27,26 +27,33 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //ソートを押下の処理
         cloth_after.setOnClickListener(this)
         hair_after.setOnClickListener(this)
         make_after.setOnClickListener(this)
         aroma_after.setOnClickListener(this)
 //        item_image.setOnClickListener(this)
 
+        //お気に入りリストの作成
         val arrayAdapter = CustomArrayAdapter(this.requireContext(), 0).apply {
             add(ListItem("What's your name?", "What do you want to convey?"))
         }
+        //お気に入りリストをUIと結びつける
         val listView: ListView = view.findViewById(R.id.list_favorite)
 //        val header = View.inflate(this.requireContext(), R.layout.header, null)
 //        listView.addHeaderView(header, null, false)
+        //お気に入りリストをUIに追加
         listView.adapter = arrayAdapter
 
+        //左上ボタンの処理
         button.setOnClickListener {
+            //お気に入りリストに情報を追加
             arrayAdapter.add(ListItem("Apple", "iPhone"))
             listView.adapter = arrayAdapter
         }
     }
 
+    //各ボタンの押下の処理
     override fun onClick(view: View?) {
         when (view?.id){
             R.id.cloth_after -> {
@@ -105,7 +112,7 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
         }
     }
 }
-
+//ボタンのトリガー
 val trig: Array<Boolean> = arrayOf(true, true, true, true)
 
 class ListItem(val name: String){
@@ -114,7 +121,7 @@ class ListItem(val name: String){
         this.description = description
     }
 }
-
+//お気に入りリストの構造
 class  CustomArrayAdapter: ArrayAdapter<ListItem> {
     private var inflater: LayoutInflater? =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
@@ -125,6 +132,7 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
         var viewHolder: ViewHolder
         var view = convertView
 
+        //リストの画像/名前/コメントとUIを結びつける
         if (view == null) {
             view = inflater!!.inflate(R.layout.list_items, parent, false)
             viewHolder = ViewHolder(
@@ -137,6 +145,7 @@ class  CustomArrayAdapter: ArrayAdapter<ListItem> {
             viewHolder = view.tag as ViewHolder
         }
 
+        //リストの画像/名前/コメントの入力
         val listItem = getItem(position)
 //        viewHolder.picture.setImageResource()
         viewHolder.name.text = listItem.name

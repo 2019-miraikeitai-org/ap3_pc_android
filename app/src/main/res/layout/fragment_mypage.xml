@@ -166,7 +166,6 @@
                     android:layout_width="400dp" android:layout_height="600dp"
                     android:layout_below="@+id/add_button" android:layout_marginTop="30dp"
                     android:scaleType="centerCrop"
-
                     tools:src="@tools:sample/avatars[12]"/>
 
             <TextView
