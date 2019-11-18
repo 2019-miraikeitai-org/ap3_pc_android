@@ -18,6 +18,7 @@ import com.github.kittinunf.result.Result;
 import com.github.kittinunf.fuel.Fuel
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpPost
 import com.google.gson.Gson
 
@@ -29,8 +30,8 @@ data class Person( val firstName:String, val lastName:String, val address:String
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
 
-data class Yo(val users: Array<User>)
-data class User(val user_id: Int, val name: String, val age: Int, val gender: String, val email: String?)
+data class Yo(val user_information: Array<User>)
+data class User(val user_id: Int,val name: String, val height: Int, val gender: String)
 
 
 
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
 fun main() {
 
-    val httpAsync = "http://160.16.103.99/users"
+    val httpAsync = "http://150.95.156.155/users"
         .httpGet()
         .responseString { request, response, result ->
             when (result) {
@@ -94,9 +95,11 @@ fun main() {
 
 
                     //userの中の
-                    for (i in 0..1) {
-                        println(user.users[i].user_id)
-                        println(user.users[i].gender)
+                    for (i in 1..11) {
+                        val a =user.user_information[i].gender
+                       // println(user.user_information[i].user_id)
+                       // println(user.user_information[i].gender)
+
                     }
                     //println(user.user_id)
                     //println(user.name)
@@ -109,13 +112,13 @@ fun main() {
 
             }
         }
-
-    val person = "{ \"name\": \"Yuka\", \"age\": 3,\"gender\":\"osu\" }"
-    Fuel.post("http://160.16.103.99/users").body(person).response { request, response, result ->
+    /*
+    val person = "{ \"name\": \"Yuka\", \"height\": 30,\"gender\":\"true\" }"
+    Fuel.post("http://150.95.156.155/users").body(person).response { request, response, result ->
         //Which results in a success
-        "http://160.16.103.99/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->
+        "http://150.95.156.155/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->
         }
-    }
+    }*/
 }
 
     //Serialising it to Json using Gson
