@@ -148,11 +148,3 @@ fun get() {
     //"http://160.16.103.99/users".httpPost().header("Content-Type" to "application/json").body(personJson.toString()).response { req, res, result ->
     //Ought to be a Success!
     //}
-
-class ListItem2(val name: String){
-    var description: String = "No description."
-    constructor(name: String, description: String): this(name){
-        this.description = description
-    }
-}
-    data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
