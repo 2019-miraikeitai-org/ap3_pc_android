@@ -14,8 +14,10 @@ import android.provider.MediaStore.Images.Media.getBitmap
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import kotlinx.android.synthetic.main.fragment_mypage.imageView
+import kotlinx.android.synthetic.main.fragment_tab1.*
 import java.io.IOException
 
 
@@ -58,6 +60,8 @@ class MypageFragment : Fragment(), View.OnClickListener{
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
 
+
+            Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(profile);
 
 
 

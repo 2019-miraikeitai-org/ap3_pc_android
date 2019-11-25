@@ -34,7 +34,6 @@ data class Yo(val user_information: Array<User>)
 data class User(val user_id: Int,val name: String, val height: Int, val gender: String)
 
 
-
 class MainActivity : AppCompatActivity() {
 
 
@@ -43,7 +42,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        main()
+        //main()
+        get()
+
+
 
         val navController = findNavController(R.id.nav_host_fragment)
 
@@ -95,10 +97,11 @@ fun main() {
 
 
                     //userの中の
-                    for (i in 1..11) {
-                        val a =user.user_information[i].gender
-                       // println(user.user_information[i].user_id)
+                    for (i in 1..3) {
+                        val a = user.user_information[i].gender
+                       println(user.user_information[i].user_id)
                        // println(user.user_information[i].gender)
+
 
                     }
                     //println(user.user_id)
@@ -112,14 +115,33 @@ fun main() {
 
             }
         }
-    /*
-    val person = "{ \"name\": \"Yuka\", \"height\": 30,\"gender\":\"true\" }"
+
+    val person = "{ \"name\": \"Taro\", \"height\": 200,\"gender\":\"true\" }"
     Fuel.post("http://150.95.156.155/users").body(person).response { request, response, result ->
         //Which results in a success
         "http://150.95.156.155/users".httpPost(listOf("bbb" to "ccc")).response { request, response, result ->
         }
-    }*/
+    }
 }
+
+fun get() {
+
+    "http://150.95.156.155/users/3".httpGet(listOf("user_ID" to "2")).responseString { request, response, result ->
+        when (result) {
+            // ステータスコード 2xx
+            is Result.Success -> {
+                val data = result.get()
+                println(data)
+
+            }
+            // ステータスコード 2xx以外
+            is Result.Failure -> {
+                // エラー処理
+            }
+        }
+    }
+}
+
 
     //Serialising it to Json using Gson
     //val personJson = Gson().toJson(person)
@@ -127,15 +149,10 @@ fun main() {
     //Ought to be a Success!
     //}
 
-
 class ListItem2(val name: String){
     var description: String = "No description."
     constructor(name: String, description: String): this(name){
         this.description = description
     }
 }
-
-data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
-
-
-//
+    data class ViewHolder(val picture: ImageView, val name: TextView, val description: TextView)
