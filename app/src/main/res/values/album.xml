@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="sample_album">
+        <item>@drawable/codem1</item>
+        <item>@drawable/codew2</item>
+        <item>@drawable/codew3</item>
+        <item>@drawable/codew0</item>
+        <item>@drawable/codew1</item>
+        <item>@drawable/codew2</item>
+        <item>@drawable/codew3</item>
+    </array>
+</resources>

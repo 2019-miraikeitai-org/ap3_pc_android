@@ -1,8 +1,6 @@
 package com.example.pc
 
 import android.content.Context
-import android.content.Intent
-import android.graphics.Picture
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +9,8 @@ import android.widget.*
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.fragment_favorite.*
-import kotlinx.android.synthetic.main.fragment_favorite.button
-import kotlinx.android.synthetic.main.fragment_mypageregist1.*
-import kotlinx.android.synthetic.main.list_items.*
-
 
 class FavoriteFragment : Fragment(), View.OnClickListener{
 
@@ -28,29 +23,44 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //MainActivityの読み込み
+//        val maActivity = activity as MainActivity
+
         //ソートを押下の処理
         cloth_after.setOnClickListener(this)
         hair_after.setOnClickListener(this)
         make_after.setOnClickListener(this)
         aroma_after.setOnClickListener(this)
-//        item_image.setOnClickListener(this)
 
-        //お気に入りリストの作成
-        val arrayAdapter = CustomArrayAdapter(this.requireContext(), 0).apply {
-            add(ListItem("What's your name?", "What do you want to convey?"))
-        }
-        //お気に入りリストをUIと結びつける
+        val list = mutableListOf<Model1>()
+        list.add(Model1("name1", "text1", R.drawable.codew0))
+        list.add(Model1("name2", "text2", R.drawable.codew1))
+
         val listView: ListView = view.findViewById(R.id.list_favorite)
-//        val header = View.inflate(this.requireContext(), R.layout.header, null)
-//        listView.addHeaderView(header, null, false)
-        //お気に入りリストをUIに追加
-        listView.adapter = arrayAdapter
+        listView.adapter = ListAdapter1(this.requireContext(), R.layout.list_item1, list)
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val fragment = DetailFragment()
+            val bundle = Bundle()
+
+            bundle.putInt("selected", position)
+            fragment.arguments = bundle
+
+            val transaction = fragmentManager!!.beginTransaction()
+
+            transaction.replace(R.id.nav_host_fragment, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+
+//            if(position == 0){
+//                Toast.makeText(this.requireContext(), "item2 clicked.", Toast.LENGTH_SHORT).show()
+//            }
+        }
 
         //左上ボタンの処理
         button.setOnClickListener {
-            //お気に入りリストに情報を追加
-            arrayAdapter.add(ListItem("Apple", "iPhone"))
-            listView.adapter = arrayAdapter
+            list.add(Model1("sample name", "sample text", R.drawable.codew0))
+            listView.adapter = ListAdapter1(this.requireContext(), R.layout.list_item1, list)
         }
     }
 
@@ -58,121 +68,47 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
     override fun onClick(view: View?) {
         when (view?.id){
             R.id.cloth_after -> {
-                val clotha = view.findViewById(R.id.cloth_after) as ImageButton
+                val cloth = view.findViewById(R.id.cloth_after) as ImageButton
                 if (trig[0]){
-                    clotha.setImageResource(R.drawable.clothb)
+                    cloth.setImageResource(R.drawable.clothb)
                     trig[0] = false
                 } else {
-                    clotha.setImageResource(R.drawable.clotha)
+                    cloth.setImageResource(R.drawable.clotha)
                     trig[0] = true
                 }
             }
             R.id.hair_after -> {
-                val haira = view.findViewById(R.id.hair_after) as ImageButton
+                val hair = view.findViewById(R.id.hair_after) as ImageButton
                 if (trig[1]){
-                    haira.setImageResource(R.drawable.hairb)
+                    hair.setImageResource(R.drawable.hairb)
                     trig[1] = false
                 } else {
-                    haira.setImageResource(R.drawable.haira)
+                    hair.setImageResource(R.drawable.haira)
                     trig[1] = true
                 }
             }
             R.id.make_after -> {
-                val makea = view.findViewById(R.id.make_after) as ImageButton
+                val make = view.findViewById(R.id.make_after) as ImageButton
                 if (trig[2]){
-                    makea.setImageResource(R.drawable.makeb)
+                    make.setImageResource(R.drawable.makeb)
                     trig[2] = false
                 } else {
-                    makea.setImageResource(R.drawable.makea)
+                    make.setImageResource(R.drawable.makea)
                     trig[2] = true
                 }
             }
             R.id.aroma_after -> {
-                val aromaa = view.findViewById(R.id.aroma_after) as ImageButton
+                val aroma = view.findViewById(R.id.aroma_after) as ImageButton
                 if (trig[3]){
-                    aromaa.setImageResource(R.drawable.aromab)
+                    aroma.setImageResource(R.drawable.aromab)
                     trig[3] = false
                 } else {
-                    aromaa.setImageResource(R.drawable.aromaa)
+                    aroma.setImageResource(R.drawable.aromaa)
                     trig[3] = true
                 }
-            }
-            R.id.item_image -> {
-                val itemimage = view.findViewById(R.id.item_image) as ImageButton
-                val textView: TextView = view.findViewById(R.id.item_description)
-
-                itemimage.setOnClickListener {
-                    textView.text = "iPhone XS"
-                }
-
-                /*itemimage.setOnClickListener {
-                    val intent = Intent(this.requireContext(), DetailFragment::class.java)
-                    startActivity(intent)
-                }*/
             }
         }
     }
 }
 //ボタンのトリガー
 val trig: Array<Boolean> = arrayOf(true, true, true, true)
-
-class ListItem(val name: String){
-    var description: String = "No description."
-    constructor(name: String, description: String): this(name){
-        this.description = description
-    }
-}
-//お気に入りリストの構造
-class  CustomArrayAdapter: ArrayAdapter<ListItem> {
-    private var inflater: LayoutInflater? =
-        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
-
-    constructor(context: Context, resource: Int) : super(context, resource)
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var viewHolder: ViewHolder
-        var view = convertView
-
-        //リストの画像/名前/コメントとUIを結びつける
-        if (view == null) {
-            view = inflater!!.inflate(R.layout.list_items, parent, false)
-            viewHolder = ViewHolder(
-                view.findViewById(R.id.item_image),
-                view.findViewById(R.id.item_name),
-                view.findViewById(R.id.item_description)
-            )
-            view.tag = viewHolder
-        } else {
-            viewHolder = view.tag as ViewHolder
-        }
-
-        //リストの画像/名前/コメントの入力
-        val listItem = getItem(position)
-//        viewHolder.picture.setImageResource()
-        viewHolder.name.text = listItem.name
-        viewHolder.description.text = listItem.description
-        viewHolder.picture.setOnClickListener{
-//            val fragmentManager = FragmentManager
-//            val fragmentTransaction = fragmentManager.T
-
-        }
-
-        return view!!
-    }
-
-    override fun isEnabled(position: Int): Boolean {
-        return false
-    }
-}
-
-class FavListItem(val id: Int){
-    var name: String = "name"
-    var text: String = "text"
-    var pic: String = "URL"
-
-    constructor(id: Int, name: String, text: String, pic: String): this(id){
-        this.name = name
-        this.text = text
-        this.pic = pic
-    }
-}

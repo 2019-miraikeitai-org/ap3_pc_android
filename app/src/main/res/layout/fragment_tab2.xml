@@ -1,133 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="-56dp" tools:layout_editor_absoluteY="75dp">
-
-        <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <ImageButton
-                android:id="@+id/codew1"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codew2"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew1"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codew3"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew2"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codew4"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codew1"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-            <ImageButton
-                android:id="@+id/codew5"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew4"
-                android:layout_alignTop="@+id/codew4"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codew6"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew5"
-                android:layout_alignTop="@+id/codew4"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-
-            <ImageButton
-                android:id="@+id/codew7"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codew4"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-            <ImageButton
-                android:id="@+id/codew8"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew7"
-                android:layout_alignTop="@+id/codew7"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codem9"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codew8"
-                android:layout_alignTop="@+id/codew7"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codew10"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codew7"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-
-        </RelativeLayout>
-
-    </ScrollView>
-
+    <GridView
+        android:id="@+id/tab2_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="48dp"
+        android:numColumns="3"
+        android:verticalSpacing="-26dp"
+        android:horizontalSpacing="4dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
