@@ -22,6 +22,8 @@ import java.io.IOException
 
 
 class MypageFragment : Fragment(), View.OnClickListener{
+    //Intent intent =new Intent(this,MainActivity);
+    //startActivityForResult(intent,);
 
     private val READ_REQUEST_CODE =42
 
@@ -47,8 +49,10 @@ class MypageFragment : Fragment(), View.OnClickListener{
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
 
+
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
