@@ -18,6 +18,12 @@ import kotlinx.android.synthetic.main.fragment_mypage.*
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
+import android.widget.NumberPicker
+
+
+
+
+
 
 class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
@@ -27,11 +33,17 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypageregist1, container, false)
 
+
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val data = arrayOf("hoge", "fuga", "piyo")
+        val picker = view.findViewById(R.id.numberPicker) as NumberPicker
+        picker.displayedValues = data
 
         //val comment = activity?.findViewById(R.id.comment) as TextView
         // R.id.reserve_2cはフラグメント1内の書き込みたいセルのid

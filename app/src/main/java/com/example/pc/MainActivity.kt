@@ -22,17 +22,13 @@ import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpPost
 import com.google.gson.Gson
 
-data class Ok(val user_id: Int)
-data class json(val user_id: Int, val name:String, val age :Int)
-data class json2(val user_name: String)
-data class Person( val firstName:String, val lastName:String, val address:String, val planet:String)
+//data class Ok(val user_id: Int)
+//data class json(val user_id: Int, val name:String, val age :Int)
+//data class json2(val user_name: String)
+//data class Person( val firstName:String, val lastName:String, val address:String, val planet:String)
 
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
-
-data class Yo(val user_information: Array<User>)
-data class User(val user_id: Int,val name: String, val height: Int, val gender: String)
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,8 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //main()
-        get()
+        main()
+        //get()
+       // println(main())
+
 
 
 
@@ -68,53 +66,62 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-fun main() {
 
+data class Yo(val user_information: Array<User>)
+data class User(val user_id: Int,val name: String, val height: Int, val gender: String)
+
+
+fun main(){
     val httpAsync = "http://150.95.156.155/users"
-        .httpGet()
-        .responseString { request, response, result ->
-            when (result) {
-                is Result.Failure -> {
-                    val ex = result.getException()
-                    println(ex)
-                }
-                is Result.Success -> {
-                    val data = result.get()
-                    println(data)
+            .httpGet()
+            .responseString { request, response, result ->
+                when (result) {
+                    is Result.Failure -> {
+                        val ex = result.getException()
+                        println(ex)
+                    }
+                    is Result.Success -> {
+                        val data = result.get()
+                        println(data)
 
 
-                    // パースするJSON
-                    val json = "{ \"user_id\": 10,\"name\": \"Yoshizaki\", \"age\": 1538 }"
-                    val mason = "{ \"user_id\": 5}"
-                    val json2 = "{ \"users\": [{\"user_name\":\"a\"}, {\"user_name\":\"b\"}] }"
+                        // パースするJSON
+                        // val json = "{ \"user_id\": 10,\"name\": \"Yoshizaki\", \"age\": 1538 }"
+                        // val mason = "{ \"user_id\": 5}"
+                        // val json2 = "{ \"users\": [{\"user_name\":\"a\"}, {\"user_name\":\"b\"}] }"
 
-                    // mapperオブジェクトを作成
-                    val mapper = jacksonObjectMapper()
+                        // mapperオブジェクトを作成
+                        val mapper = jacksonObjectMapper()
 
-                    // jsonをdeserialize
-                    // 下の場合はjsonがColor型のオブジェクトにマッピングされる
-                    val user = mapper.readValue<Yo>(data)
+                        // jsonをdeserialize
+                        // 下の場合はjsonがColor型のオブジェクトにマッピングされる
+                        val user = mapper.readValue<Yo>(data)
 
 
-                    //userの中の
-                    for (i in 1..3) {
-                        val a = user.user_information[i].gender
-                       println(user.user_information[i].user_id)
-                       // println(user.user_information[i].gender)
+
+                        //userの中の
+                        for (i in 1..3) {
+                            val c = user.user_information[i].gender
+                            //println(user.user_information[i].user_id)
+                            // println(user.user_information[i].gender)
+
+
+                        }
+                        //println(user.user_id)
+                        //println(user.name)
+                        //println(user.age)
+
+                        //println(user.user_name)
+                        //println(user.user_name)
+                        val b = user.user_information[2].gender
 
 
                     }
-                    //println(user.user_id)
-                    //println(user.name)
-                    //println(user.age)
-
-                    //println(user.user_name)
-                    //println(user.user_name)
 
                 }
 
             }
-        }
+
 
     val person = "{ \"name\": \"Taro\", \"height\": 200,\"gender\":\"true\" }"
     Fuel.post("http://150.95.156.155/users").body(person).response { request, response, result ->
@@ -125,8 +132,8 @@ fun main() {
 }
 
 fun get() {
-
-    "http://150.95.156.155/users/3".httpGet(listOf("user_ID" to "2")).responseString { request, response, result ->
+    val user_id = 3
+    val a="http://150.95.156.155/users/${user_id}".httpGet().responseString { request, response, result ->
         when (result) {
             // ステータスコード 2xx
             is Result.Success -> {
@@ -137,6 +144,7 @@ fun get() {
             // ステータスコード 2xx以外
             is Result.Failure -> {
                 // エラー処理
+                println("errorerrorerror")
             }
         }
     }
