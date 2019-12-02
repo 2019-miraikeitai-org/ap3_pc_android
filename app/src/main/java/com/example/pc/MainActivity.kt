@@ -58,6 +58,8 @@ class MainActivity : AppCompatActivity() , BeaconConsumer {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSampleData()
+
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager!!.beaconParsers.add(BeaconParser().setBeaconLayout(IBEACON_FORMAT))
 
@@ -265,6 +267,65 @@ fun get() {
     }
 }
 
+
+var interim_position: Int = 0
+
+val sample_user_list_all = mutableListOf<User_sample>()
+val user_list_men = mutableListOf<User_sample>()
+val user_list_women = mutableListOf<User_sample>()
+val user_list_favorite = mutableListOf<User_sample>()
+fun setSampleData() {
+    sample_user_list_all.add(User_sample(0,"Neymar", 175, true,
+        Picture(R.drawable.codem1, "text1",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(1,"Cavani", 185, true,
+        Picture(R.drawable.codem2, "text2",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(2,"Mbappé", 178, true,
+        Picture(R.drawable.codem3, "text3",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(3,"Rin", 165, false,
+        Picture(R.drawable.codew0, "text4",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(4,"Hina", 167, false,
+        Picture(R.drawable.codew1, "text5",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(5,"Yua", 159, false,
+        Picture(R.drawable.codew2, "text6",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+    sample_user_list_all.add(User_sample(6,"An", 154, false,
+        Picture(R.drawable.codew3, "text7",
+            Tag("TEE", "NIKE", "L", 8000),
+            Tag("Jacket","NIKE", "FREE", 14000),
+            Tag("BOTTOM", "NIKE", "L", 9000),
+            Tag("SHOES", "ADIDAS","27", 12000))))
+
+    for (user in sample_user_list_all){
+        if (user.user_gender){
+            user_list_men.add(user)
+        } else {
+            user_list_women.add(user)
+        }
+    }
+}
 
     //Serialising it to Json using Gson
     //val personJson = Gson().toJson(person)

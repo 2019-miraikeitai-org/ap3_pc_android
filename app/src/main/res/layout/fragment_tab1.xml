@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <GridView
+        android:id="@+id/tab1_gridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
+        android:numColumns="3"
+        android:horizontalSpacing="4dp"/>
+    <!--
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
@@ -16,122 +25,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageButton
-                android:id="@+id/codem1"
+                android:id="@+id/code1"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
+                android:src="@color/colorPrimary"/>
 
 
             <ImageButton
-                android:id="@+id/codem2"
+                android:id="@+id/code2"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem1"
+                android:layout_toRightOf="@+id/code1"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
+                android:src="@color/colorPrimary"/>
 
             <ImageButton
-                android:id="@+id/codem3"
+                android:id="@+id/code3"
                 android:layout_width="130dp"
                 android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem2"
+                android:layout_toRightOf="@+id/code2"
                 android:layout_marginLeft="5dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codem4"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codem1"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-            <ImageButton
-                android:id="@+id/codem5"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem4"
-                android:layout_alignTop="@+id/codem4"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codem6"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem5"
-                android:layout_alignTop="@+id/codem4"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-
-            <ImageButton
-                android:id="@+id/codem7"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codem4"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-            <ImageButton
-                android:id="@+id/codem8"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem7"
-                android:layout_alignTop="@+id/codem7"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codem9"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_toRightOf="@+id/codem8"
-                android:layout_alignTop="@+id/codem7"
-                android:layout_marginLeft="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-            <ImageButton
-                android:id="@+id/codem10"
-                android:layout_width="130dp"
-                android:layout_height="200dp"
-                android:layout_below="@+id/codem7"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="center"
-                android:background="@null"
-                tools:src="@tools:sample/avatars[12]"/>
-
-
+                android:src="@color/colorPrimary"/>
 
         </RelativeLayout>
-
     </ScrollView>
-
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

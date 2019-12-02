@@ -7,31 +7,26 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import java.text.SimpleDateFormat
-import java.util.*
 
-class ListAdapter2(var ctx: Context, var resource: Int, var item: List<Model2>)
-    : ArrayAdapter<Model2>(ctx, resource, item){
+class ListAdapter2(private var ctx: Context, var resource: Int, var item: List<User_sample>)
+    : ArrayAdapter<User_sample>(ctx, resource, item){
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(ctx)
         val view: View = layoutInflater.inflate(resource, null)
 
-        val imageView: ImageView = view.findViewById(R.id.notify_photo)
-        val textView: TextView = view.findViewById(R.id.notify_name)
-        val textView2: TextView = view.findViewById(R.id.notify_time)
+        val imageView: ImageView = view.findViewById(R.id.list_item_photo)
+        val name: TextView = view.findViewById(R.id.list_item_name)
+        val height: TextView = view.findViewById(R.id.list_item_height)
+        val text: TextView = view.findViewById(R.id.list_item_text)
 
-        val item: Model2 = item[position]
+        val item: User_sample = item[position]
 
-        fun getToday(): String{
-            val date = Date()
-            val format = SimpleDateFormat("yyyy/MM/dd/HH:mm", Locale.getDefault())
-            return  format.format(date)
-        }
-
-        imageView.setImageDrawable(ctx.resources.getDrawable(item.photo))
-        textView.text = item.name
-        textView2.text = getToday()
+        imageView.setImageResource(item.picture.picture_id)
+        name.text = item.user_name
+        val h: String = item.user_height.toString() + "cm"
+        height.text = h
+        text.text = item.picture.picture_text
 
         return view
     }
