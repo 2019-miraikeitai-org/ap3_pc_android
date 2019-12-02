@@ -43,7 +43,8 @@ import org.altbeacon.beacon.Beacon
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
 
-class MainActivity : AppCompatActivity() , BeaconConsumer {
+class MainActivity : AppCompatActivity()  {
+    //ビーコンではこれ追加 → class MainActivity : AppCompatActivity() , BeaconConsumer
 
 
     private val IBEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() , BeaconConsumer {
 
         setSampleData()
 
+/*ビーコン一旦コメントアウト
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager!!.beaconParsers.add(BeaconParser().setBeaconLayout(IBEACON_FORMAT))
 
@@ -78,7 +80,7 @@ class MainActivity : AppCompatActivity() , BeaconConsumer {
         beaconTransmitter.startAdvertising(beacon)
 
         beaconTransmitter.isStarted()
-
+*/
         main()
         //get()
        // println(main())
@@ -101,7 +103,7 @@ class MainActivity : AppCompatActivity() , BeaconConsumer {
         //val navController2=findNavController(R.id.my_nav_host_fragment)
 
     }
-
+/*ビーコン一旦コメントアウト
     override fun onResume() {
         super.onResume()
         // サービスの開始
@@ -177,6 +179,7 @@ class MainActivity : AppCompatActivity() , BeaconConsumer {
         })
 
     }
+    */
 
 
 
