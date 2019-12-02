@@ -50,10 +50,10 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
         //val edit_text = view.findViewById(R.id.edit_text) as EditText
 
-        tops_before.setOnClickListener(this)
-        bottoms_before.setOnClickListener(this)
-        acc_before.setOnClickListener(this)
-        more_before.setOnClickListener(this)
+        tag1_before.setOnClickListener(this)
+        tag2_before.setOnClickListener(this)
+        tag3_before.setOnClickListener(this)
+        tag4_before.setOnClickListener(this)
         regist_button.setOnClickListener(this)
 
     }
@@ -65,49 +65,49 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
 
         when (view.id){
-            R.id.tops_before-> {
-                val topsb = view.findViewById(R.id.tops_before)  as ImageButton
+            R.id.tag1_before-> {
+                val topsb = view.findViewById(R.id.tag1_before)  as ImageButton
 
                 if (trig1[0]){
-                    topsb.setImageResource(R.drawable.topsa)
+                    topsb.setImageResource(R.drawable.tag11)
                     trig1[0] = false
                 } else {
-                    topsb.setImageResource(R.drawable.topsb)
+                    topsb.setImageResource(R.drawable.tag1)
                     trig1[0] = true
                 }
             }
 
-            R.id.bottoms_before -> {
-                val bottomsb = view.findViewById(R.id.bottoms_before) as ImageButton
+            R.id.tag2_before -> {
+                val bottomsb = view.findViewById(R.id.tag2_before) as ImageButton
 
                 if (trig1[1]){
-                    bottomsb.setImageResource(R.drawable.bottomsa)
+                    bottomsb.setImageResource(R.drawable.tag21)
                     trig1[1] = false
                 } else {
-                    bottomsb.setImageResource(R.drawable.bottomsb)
+                    bottomsb.setImageResource(R.drawable.tag2)
                     trig1[1] = true
                 }
             }
 
-            R.id.acc_before -> {
-                val accb = view.findViewById(R.id.acc_before) as ImageButton
+            R.id.tag3_before -> {
+                val accb = view.findViewById(R.id.tag3_before) as ImageButton
 
                 if (trig1[2]){
-                    accb.setImageResource(R.drawable.acca)
+                    accb.setImageResource(R.drawable.tag31)
                     trig1[2] = false
                 } else {
-                    accb.setImageResource(R.drawable.accb)
+                    accb.setImageResource(R.drawable.tag3)
                     trig1[2] = true
                 }
             }
-            R.id.more_before -> {
-                val moreb = view.findViewById(R.id.more_before) as ImageButton
+            R.id.tag4_before -> {
+                val moreb = view.findViewById(R.id.tag4_before) as ImageButton
 
                 if (trig1[3]){
-                    moreb.setImageResource(R.drawable.morea)
+                    moreb.setImageResource(R.drawable.tag41)
                     trig1[3] = false
                 } else {
-                    moreb.setImageResource(R.drawable.moreb)
+                    moreb.setImageResource(R.drawable.tag4)
                     trig1[3] = true
                 }
             }
