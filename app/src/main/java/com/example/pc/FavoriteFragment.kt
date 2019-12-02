@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
 class FavoriteFragment : Fragment(), View.OnClickListener{
@@ -23,92 +24,72 @@ class FavoriteFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //MainActivityの読み込み
-//        val maActivity = activity as MainActivity
+        sort_tag1.setOnClickListener(this)
+        sort_tag2.setOnClickListener(this)
+        sort_tag3.setOnClickListener(this)
+        sort_tag4.setOnClickListener(this)
 
-        //ソートを押下の処理
-        cloth_after.setOnClickListener(this)
-        hair_after.setOnClickListener(this)
-        make_after.setOnClickListener(this)
-        aroma_after.setOnClickListener(this)
-
-        val list = mutableListOf<Model1>()
-        list.add(Model1("name1", "text1", R.drawable.codew0))
-        list.add(Model1("name2", "text2", R.drawable.codew1))
-
-        val listView: ListView = view.findViewById(R.id.list_favorite)
-        listView.adapter = ListAdapter1(this.requireContext(), R.layout.list_item1, list)
-
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val fragment = DetailFragment()
-            val bundle = Bundle()
-
-            bundle.putInt("selected", position)
-            fragment.arguments = bundle
-
-            val transaction = fragmentManager!!.beginTransaction()
-
-            transaction.replace(R.id.nav_host_fragment, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-
-//            if(position == 0){
-//                Toast.makeText(this.requireContext(), "item2 clicked.", Toast.LENGTH_SHORT).show()
-//            }
+        val listItem = ArrayList<User_sample>()
+        for (user in user_list_favorite){
+            listItem.add(user)
         }
+        listItem.reverse()
 
-        //左上ボタンの処理
-        button.setOnClickListener {
-            list.add(Model1("sample name", "sample text", R.drawable.codew0))
-            listView.adapter = ListAdapter1(this.requireContext(), R.layout.list_item1, list)
+        val adapter = ListAdapter2(this.requireContext(), R.layout.list_item2, listItem)
+        val listView: ListView = view.findViewById(R.id.favorite_listView)
+        listView.adapter = adapter
+
+        listView.setOnItemClickListener { _, view, i, _ ->
+            val index = user_list_favorite.size - ( i + 1 )
+            interim_position = user_list_favorite[index].user_id
+            findNavController().navigate(R.id.detail)
         }
     }
 
-    //各ボタンの押下の処理
+    private val trig: Array<Boolean> = arrayOf(true, true, true, true)
     override fun onClick(view: View?) {
         when (view?.id){
-            R.id.cloth_after -> {
-                val cloth = view.findViewById(R.id.cloth_after) as ImageButton
+            R.id.sort_tag1 -> {
+                val tag1 = view.findViewById(R.id.sort_tag1) as ImageButton
                 if (trig[0]){
-                    cloth.setImageResource(R.drawable.clothb)
+                    tag1.setImageResource(R.drawable.tag1)
                     trig[0] = false
                 } else {
-                    cloth.setImageResource(R.drawable.clotha)
+                    tag1.setImageResource(R.drawable.tag11)
                     trig[0] = true
                 }
             }
-            R.id.hair_after -> {
-                val hair = view.findViewById(R.id.hair_after) as ImageButton
+            R.id.sort_tag2 -> {
+                val tag2 = view.findViewById(R.id.sort_tag2) as ImageButton
                 if (trig[1]){
-                    hair.setImageResource(R.drawable.hairb)
+                    tag2.setImageResource(R.drawable.tag2)
                     trig[1] = false
                 } else {
-                    hair.setImageResource(R.drawable.haira)
+                    tag2.setImageResource(R.drawable.tag21)
                     trig[1] = true
                 }
             }
-            R.id.make_after -> {
-                val make = view.findViewById(R.id.make_after) as ImageButton
+            R.id.sort_tag3 -> {
+                val tag3 = view.findViewById(R.id.sort_tag3) as ImageButton
                 if (trig[2]){
-                    make.setImageResource(R.drawable.makeb)
+                    tag3.setImageResource(R.drawable.tag3)
                     trig[2] = false
                 } else {
-                    make.setImageResource(R.drawable.makea)
+                    tag3.setImageResource(R.drawable.tag31)
                     trig[2] = true
                 }
             }
-            R.id.aroma_after -> {
-                val aroma = view.findViewById(R.id.aroma_after) as ImageButton
+            R.id.sort_tag4 -> {
+                val tag4 = view.findViewById(R.id.sort_tag4) as ImageButton
                 if (trig[3]){
-                    aroma.setImageResource(R.drawable.aromab)
+                    tag4.setImageResource(R.drawable.tag4)
                     trig[3] = false
                 } else {
-                    aroma.setImageResource(R.drawable.aromaa)
+                    tag4.setImageResource(R.drawable.tag41)
                     trig[3] = true
                 }
             }
         }
     }
 }
-//ボタンのトリガー
-val trig: Array<Boolean> = arrayOf(true, true, true, true)
+

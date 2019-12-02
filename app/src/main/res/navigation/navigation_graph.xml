@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/navigation_graph"
-            app:startDestination="@id/fragment">
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragment">
 
-    <custom_fragment android:id="@+id/fragment"
-                     android:name="com.example.pc.Fragment"
-                     android:label="Fragment">
-        <action android:id="@+id/action_fragment_to_navigation_mypage"
-                app:destination="@id/navigation_mypage"/>
+    <custom_fragment
+        android:id="@+id/fragment"
+        android:name="com.example.pc.Fragment"
+        android:label="Fragment">
+        <action
+            android:id="@+id/action_fragment_to_navigation_mypage"
+            app:destination="@id/navigation_mypage"/>
     </custom_fragment>
 
+    <custom_fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.pc.HomeFragment"
+        android:label="HomeFragment"/>
 
-    <custom_fragment android:id="@+id/navigation_home"
-              android:name="com.example.pc.HomeFragment"
-              android:label="HomeFragment"/>
-
-    <custom_fragment android:id="@+id/tab1"
-                     android:name="com.example.pc.Tab1Fragment"
-                     android:label="Tab1Fragment">
-
-
-        <action android:id="@+id/action_tab1_to_home_details"
-                app:destination="@id/home_details"/>
+    <custom_fragment
+        android:id="@+id/tab1"
+        android:name="com.example.pc.Tab1Fragment"
+        android:label="Tab1Fragment"
+        tools:layout="@layout/fragment_tab1">
+        <action
+            android:id="@+id/action_tab1_to_detail"
+            app:destination="@id/detail" />
     </custom_fragment>
 
-    <custom_fragment android:id="@+id/tab2"
-                     android:name="com.example.pc.Tab2Fragment"
-                     android:label="Tab2Fragment">
-
-
-        <action android:id="@+id/action_tab2_to_home_details"
-                app:destination="@id/home_details"/>
+    <custom_fragment
+        android:id="@+id/tab2"
+        android:name="com.example.pc.Tab2Fragment"
+        android:label="Tab2Fragment"
+        tools:layout="@layout/fragment_tab2">
+        <action
+            android:id="@+id/action_tab2_to_detail"
+            app:destination="@id/detail" />
     </custom_fragment>
 
-    <custom_fragment android:id="@+id/home_details"
-                     android:name="com.example.pc.HomeDetailsFragment"
-                     android:label="HomeDetailsFragment">
-
-
+    <custom_fragment
+        android:id="@+id/home_details"
+        android:name="com.example.pc.HomeDetailsFragment"
+        android:label="HomeDetailsFragment">
     </custom_fragment>
 
-
+    <custom_fragment android:id="@+id/navigation_favorite"
+        android:name="com.example.pc.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_navigation_favorite_to_detail"
+            app:destination="@id/detail" />
+    </custom_fragment>
 
     <custom_fragment android:id="@+id/navigation_notification"
               android:name="com.example.pc.NotificationFragment"
@@ -51,10 +63,10 @@
             app:destination="@id/navigation_mypage" />
     </custom_fragment>
 
-
-    <custom_fragment android:id="@+id/navigation_favorite"
-              android:name="com.example.pc.FavoriteFragment"
-              android:label="FavoriteFragment"/>
+    <custom_fragment android:id="@+id/detail"
+        android:name="com.example.pc.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail"/>
 
 
     <custom_fragment android:id="@+id/navigation_mypage"

@@ -98,6 +98,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
 //服とかメイクとか選ぶ時のボタン操作
+
     override fun onClick(view: View) {
 
 
@@ -110,47 +111,47 @@ class MypageFragment : Fragment(), View.OnClickListener{
             R.id.cloth_after1 -> {
                 val clotha = view.findViewById(R.id.cloth_after1)  as ImageButton
 
-                if (trig[0]){
+                if (trig1[0]){
                     clotha.setImageResource(R.drawable.clothb)
-                    trig[0] = false
+                    trig1[0] = false
                 } else {
                     clotha.setImageResource(R.drawable.clotha)
-                    trig[0] = true
+                    trig1[0] = true
                 }
             }
 
             R.id.hair_before -> {
                 val hairb = view.findViewById(R.id.hair_before) as ImageButton
 
-                if (trig[1]){
+                if (trig1[1]){
                     hairb.setImageResource(R.drawable.haira)
-                    trig[1] = false
+                    trig1[1] = false
                 } else {
                     hairb.setImageResource(R.drawable.hairb)
-                    trig[1] = true
+                    trig1[1] = true
                 }
             }
 
             R.id.make_before -> {
                 val makeb = view.findViewById(R.id.make_before) as ImageButton
 
-                if (trig[2]){
+                if (trig1[2]){
                     makeb.setImageResource(R.drawable.makea)
-                    trig[2] = false
+                    trig1[2] = false
                 } else {
                     makeb.setImageResource(R.drawable.makeb)
-                    trig[2] = true
+                    trig1[2] = true
                 }
             }
             R.id.aroma_before -> {
                 val aromab = view.findViewById(R.id.aroma_before) as ImageButton
 
-                if (trig[3]){
+                if (trig1[3]){
                     aromab.setImageResource(R.drawable.aromaa)
-                    trig[3] = false
+                    trig1[3] = false
                 } else {
                     aromab.setImageResource(R.drawable.aromab)
-                    trig[3] = true
+                    trig1[3] = true
                 }
             }
             R.id.add_button -> {
@@ -204,3 +205,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
     }
 
 }
+
+val trig1: Array<Boolean> = arrayOf(true, true, true, true)
+
