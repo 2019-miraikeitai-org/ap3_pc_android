@@ -2,6 +2,9 @@ package com.example.pc
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.RemoteException
+import android.util.Log
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.View
@@ -21,6 +24,16 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.httpPost
 import com.google.gson.Gson
+import org.altbeacon.beacon.*
+import org.altbeacon.beacon.MonitorNotifier
+import org.altbeacon.beacon.BeaconTransmitter
+import org.altbeacon.beacon.BeaconParser
+import org.altbeacon.beacon.Beacon
+
+
+
+
+
 
 //data class Ok(val user_id: Int)
 //data class json(val user_id: Int, val name:String, val age :Int)
@@ -30,14 +43,40 @@ import com.google.gson.Gson
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , BeaconConsumer {
 
+
+    private val IBEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
+    private val UUID = "74A23A96-A479-4330-AEFF-2421B6CF443C"
+    private val beaconname = "00000001"
+
+    private var beaconManager: BeaconManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        beaconManager = BeaconManager.getInstanceForApplication(this)
+        beaconManager!!.beaconParsers.add(BeaconParser().setBeaconLayout(IBEACON_FORMAT))
+
+
+        val beacon = Beacon.Builder()
+            .setId1(UUID)
+            .setId2("12345")
+            .setId3("80")
+            .setManufacturer(0x004C)
+            .build()
+        val beaconParser = BeaconParser()
+            .setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24")
+        val beaconTransmitter = BeaconTransmitter(applicationContext, beaconParser)
+
+        //送信開始
+        beaconTransmitter.startAdvertising(beacon)
+
+        beaconTransmitter.isStarted()
+
         main()
         //get()
        // println(main())
@@ -58,6 +97,82 @@ class MainActivity : AppCompatActivity() {
 
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // サービスの開始
+        beaconManager!!.bind(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // サービスの停止
+        beaconManager!!.unbind(this)
+    }
+
+    override fun onBeaconServiceConnect() {
+        val uuid = Identifier.parse(UUID)
+        val mRegion = Region(beaconname, uuid, null, null)
+
+        try {
+            beaconManager!!.startMonitoringBeaconsInRegion(mRegion)
+        } catch (e: RemoteException) {
+            e.printStackTrace()
+        }
+
+        beaconManager!!.addMonitorNotifier(object : MonitorNotifier {
+            override fun didEnterRegion(region: Region) {
+                // 領域侵入
+                //レンジングの開始
+                beaconManager!!.startRangingBeaconsInRegion(mRegion)
+            }
+
+            override fun didExitRegion(region: Region) {
+                // 領域退出
+                //レンジングの停止
+                beaconManager!!.stopRangingBeaconsInRegion(mRegion)
+
+            }
+            override fun didDetermineStateForRegion(i: Int, region: Region) {
+
+            }
+
+
+        })
+
+
+        beaconManager!!.addRangeNotifier(object: RangeNotifier {
+
+            // 範囲内のビーコン情報を受け取る
+            override fun didRangeBeaconsInRegion(beacons: Collection<Beacon>, region: Region){
+
+                //var uuid:Int
+                //var maxMinor: Int?
+
+                // 範囲内の複数のビーコン情報を保持させる変数
+                var getMajorList: ArrayList<Int> = ArrayList()
+
+
+                // 範囲内にビーコンがある時の処理
+                if (beacons.isNotEmpty()) {
+
+                    //Log.d(tag,"ビーコン発見")
+
+                    // 範囲内のビーコンの数だけ繰り返す
+                    for (beacon in beacons) {
+                        // 複数のビーコン情報をArrayListに分割
+                        getMajorList.add(beacon.id2.toInt())
+                        Log.d("Beacon","UUID:" + beacon.id1 + "user_id:" +beacon.id2)
+
+                    }
+
+
+
+                }
+            }
+        })
 
     }
 
