@@ -98,11 +98,8 @@
                      android:name="com.example.pc.MypageRegistFragment2"
                      android:label="MypageRegistFragment2"
                      tools:layout="@layout/fragment_mypageregist2">
-
         <action android:id="@+id/action_MypageRegistFragment2_to_MypageRegistFragment1"
                 app:destination="@id/MypageRegistFragment1"/>
-        <action android:id="@+id/action_MypageRegistFragment2_to_navigation_mypage"
-                app:destination="@id/navigation_mypage"/>
     </custom_fragment>
 
 </navigation>
