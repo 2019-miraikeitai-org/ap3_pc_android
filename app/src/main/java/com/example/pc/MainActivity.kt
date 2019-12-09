@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity()  {
 
         beaconTransmitter.isStarted()
 */
-        main()
+        //main()
         //get()
        // println(main())
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity()  {
         val navController = findNavController(R.id.nav_host_fragment)
 
         navController.addOnDestinationChangedListener { _, nd: NavDestination, _ ->
-            if (nd.id == R.id.MypageRegistFragment1) {
+            if (nd.id == R.id.MypageRegistFragment1 || nd.id == R.id.fragment) {
                 nav_view.visibility = View.GONE
             } else {
                 nav_view.visibility = View.VISIBLE
@@ -101,7 +101,6 @@ class MainActivity : AppCompatActivity()  {
 
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
-
     }
 /*ビーコン一旦コメントアウト
     override fun onResume() {

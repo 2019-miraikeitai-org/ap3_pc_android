@@ -57,6 +57,10 @@ class MypageFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        comment.text = args.content
+
+
+
         set_button.setOnClickListener(this)
         cloth_after1.setOnClickListener(this)
         hair_before.setOnClickListener(this)
@@ -169,6 +173,8 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
                 //フラグメント移動
                 findNavController().navigate(R.id.action_mypage_to_regist1)
+
+
 
 
 

@@ -14,12 +14,30 @@
                 android:layout_height="match_parent"
                 android:padding="16dp">
 
+            <ImageButton
+                android:id="@+id/back2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/back2"
+                android:background="#00000000"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="着用アイテムを登録"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/colorPrimary"/>
+
             <ImageView
                     android:id="@+id/picture"
                     android:layout_width="150dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="30dp"
+                    android:layout_below="@+id/back2"
                     android:scaleType="center"
                     android:src="@drawable/codew0"/>
 
@@ -28,7 +46,7 @@
                     android:id="@+id/speechballoon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="80dp"
                     android:layout_marginLeft="162dp"
                     android:src="@drawable/speechballoon"/>
 
@@ -38,7 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="190dp"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="95dp"
                     android:background="#00000000"
                     android:src="@drawable/tag1"/>
 
@@ -76,7 +94,7 @@
                     android:id="@+id/text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="250dp"
+                    android:layout_marginTop="300dp"
                     android:text="コーディネートのポイント"
                     android:textSize="15sp"/>
 
