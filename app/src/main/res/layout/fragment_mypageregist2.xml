@@ -14,11 +14,32 @@
         android:background="@color/cardview_light_background">
 
         <TextView
+            android:id="@+id/tagname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="15sp"/>
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#00000000"
+            android:src="@drawable/back"/>
+
+
+        <TextView
             android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
+            android:layout_below="@+id/tagname"
             android:text="TYPE"
             android:textSize="15sp"/>
 
@@ -60,6 +81,7 @@
             android:layout_below="@+id/tops"
             android:layout_alignLeft="@+id/tops"
             android:layout_toLeftOf="@+id/bag"
+            android:layout_marginTop="5dp"
             android:background="#00000000"
             android:src="@drawable/outerb"/>
 

@@ -6,24 +6,41 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.fragment_mypageregist1.*
+import kotlinx.android.synthetic.main.fragment.*
 
-class Fragment: Fragment() {
+
+class Fragment: Fragment() , View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment, container, false)
-        val content = "sumple"
 
-
-        // 生成されたクラスに引数を渡して遷移
-        val action =FragmentDirections.actionFragmentToNavigationMypage(content)
-        findNavController().navigate(action)
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        start_button.setOnClickListener(this)
+
+    }
+
+    override fun onClick(view: View) {
 
 
+        when (view.id) {
+
+            R.id.start_button -> {
+
+                val content = "sumple"
 
 
+                // 生成されたクラスに引数を渡して遷移
+                val action = FragmentDirections.actionFragmentToNavigationMypage(content)
+                findNavController().navigate(action)
+            }
+
+
+        }
+    }
 }
