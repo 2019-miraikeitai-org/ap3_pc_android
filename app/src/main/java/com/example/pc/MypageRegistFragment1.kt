@@ -72,7 +72,7 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
 
 
-    override fun it onClick(view: View) {
+    override fun onClick(view: View) {
 
 
         when (view.id){
