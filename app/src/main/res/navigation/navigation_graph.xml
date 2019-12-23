@@ -11,8 +11,8 @@
         android:name="com.example.pc.Fragment"
         android:label="Fragment">
         <action
-            android:id="@+id/action_fragment_to_navigation_mypage"
-            app:destination="@id/navigation_mypage"/>
+            android:id="@+id/action_fragment_to_navigation_home"
+            app:destination="@id/navigation_home"/>
     </fragment>
 
     <fragment
@@ -77,7 +77,9 @@
                 app:destination="@id/MypageRegistFragment1"/>
         <argument android:name="content"
                   app:argType="string"
+                  android:defaultValue="@null"
                   app:nullable="true"/>
+
         <action
             android:id="@+id/action_navigation_mypage_to_navigation_notification"
             app:destination="@id/navigation_notification" />
@@ -91,6 +93,8 @@
                 app:destination="@id/navigation_mypage"/>
         <action android:id="@+id/action_MypageRegistFragment1_to_MypageRegistFragment2"
                 app:destination="@id/MypageRegistFragment2"/>
+        <argument android:name="pic"
+                  app:argType="com.example.pc.PicData"/>
     </fragment>
 
     <fragment android:id="@+id/MypageRegistFragment2"

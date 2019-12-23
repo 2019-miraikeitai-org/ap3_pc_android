@@ -1,8 +1,8 @@
 package com.example.pc
 
 class Tag (
-    val type : String,
-    val brand : String,
-    val size : String,
-    val price : Int
+    var type : String,
+    var brand : String,
+    var size : String,
+    var price : Int
 )
