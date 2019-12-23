@@ -19,24 +19,36 @@ import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
 import android.widget.NumberPicker
+import androidx.navigation.fragment.navArgs
+import android.widget.LinearLayout
+import android.R.attr.bitmap
+import android.graphics.Bitmap
+//import android.R
+import android.graphics.BitmapFactory
 
 
 
 
 
 
+
+var k : Int = 0
 class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
-
-
+    private val args3: MypageRegistFragment1Args by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypageregist1, container, false)
+
+        // bitmapの画像リサイズ
+        val bitmap2 = Bitmap.createScaledBitmap(args3.pic.pic, 675, 925, false)
+        picture.setImageBitmap(bitmap2)
 
 
 
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,10 +57,8 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
         //val picker = view.findViewById(R.id.numberPicker) as NumberPicker
         //picker.displayedValues = data
 
-        //val comment = activity?.findViewById(R.id.comment) as TextView
-        // R.id.reserve_2cはフラグメント1内の書き込みたいセルのid
 
-        //val edit_text = view.findViewById(R.id.edit_text) as EditText
+
 
         back2.setOnClickListener(this)
         tag1_before.setOnClickListener(this)
@@ -62,7 +72,7 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
 
 
-    override fun onClick(view: View) {
+    override fun it onClick(view: View) {
 
 
         when (view.id){
@@ -82,7 +92,6 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                     val ac1 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname)
                     findNavController().navigate(ac1)
 
-                    //findNavController().navigate(R.id.action_MypageRegistFragment1_to_MypageRegistFragment2)
                 } else {
                     topsb.setImageResource(R.drawable.tag1)
                     trig2[0] = true
@@ -141,13 +150,18 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
             R.id.regist_button -> {
 
+
+
                 // EditTextの中身を取り出す
                 //val edittext = view.findViewById(R.id.edit_text)  as EditText
                 val content = edit_text.text.toString()
 
+                regist_list_mypage[k].picture_text2=content
+                //regist_list_mypage.add(Picture(1,content,Tag("tag1","tag1","tag1",1),Tag("tag2","tag1","tag1",1),Tag("tag3","tag1","tag1",1),Tag("tag1","tag1","tag1",1)))
+
 
                 // 生成されたクラスに引数を渡して遷移
-                val action =MypageRegistFragment1Directions.actionRegist1ToMypage(content)
+                val action =MypageRegistFragment1Directions.actionRegist1ToMypage()
                 findNavController().navigate(action)
 
 

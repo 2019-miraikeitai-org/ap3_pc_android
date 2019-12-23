@@ -1,6 +1,7 @@
 package com.example.pc
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.RemoteException
@@ -276,6 +277,12 @@ val sample_user_list_all = mutableListOf<User_sample>()
 val user_list_men = mutableListOf<User_sample>()
 val user_list_women = mutableListOf<User_sample>()
 val user_list_favorite = mutableListOf<User_sample>()
+var regist_list_mypage = mutableListOf(Picture_uri(
+    Uri.parse("android.resource://com.example.pc/drawable/codew0.JPG"), "text1",
+    Tag("TEE", "NIKE", "L", 8000),
+    Tag("Jacket","NIKE", "FREE", 14000),
+    Tag("BOTTOM", "NIKE", "L", 9000),
+    Tag("SHOES", "ADIDAS","27", 12000)))
 fun setSampleData() {
     sample_user_list_all.add(User_sample(0,"Neymar", 175, true,
         Picture(R.drawable.codem1, "text1",

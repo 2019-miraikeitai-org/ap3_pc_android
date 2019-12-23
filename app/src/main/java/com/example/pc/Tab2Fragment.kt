@@ -37,12 +37,12 @@ class Tab2Fragment: Fragment(){
             findNavController().navigate(R.id.detail)
         }
 
-/*        val list = ArrayList<Model>()
+/*        val list_item3 = ArrayList<Model>()
 
         for (i in 1 .. 5) {
-            list.add(Model(R.drawable.codew1))
-            list.add(Model(R.drawable.codew2))
-            list.add(Model(R.drawable.codew3))
+            list_item3.add(Model(R.drawable.codew1))
+            list_item3.add(Model(R.drawable.codew2))
+            list_item3.add(Model(R.drawable.codew3))
         }
 
 /*        Picasso.with(context).load("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT6Cfgvxw9-7mBMam3j-_V-xHh9OMewOey5F4GxC2uZr-1kdVdr").into(home_photo);
@@ -54,13 +54,13 @@ class Tab2Fragment: Fragment(){
         Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(codew7);
         Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(codew8);
 
-        val list = ArrayList<String>()
-        list.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwd0-rYWZSIgQOcSgON9lnAI_IM_CnHEWGhcR6XP9ZgbUC3APp")
-        list.add("https://www.soccer-king.jp/wp-content/uploads/2013/06/CAVANI-1.jpg")
-        list.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon")
+        val list_item3 = ArrayList<String>()
+        list_item3.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwd0-rYWZSIgQOcSgON9lnAI_IM_CnHEWGhcR6XP9ZgbUC3APp")
+        list_item3.add("https://www.soccer-king.jp/wp-content/uploads/2013/06/CAVANI-1.jpg")
+        list_item3.add("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon")
         */
         val gridView: GridView = view.findViewById(R.id.tab2_gridView)
-        gridView.adapter = ArrayAdapter(this.requireContext(), R.layout.list_item, list)
+        gridView.adapter = ArrayAdapter(this.requireContext(), R.layout.list_item, list_item3)
 
         gridView.setOnItemClickListener { parent, view, position, id ->
             val fragment = DetailFragment()

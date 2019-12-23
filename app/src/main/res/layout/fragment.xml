@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
+                android:background="#ffffff"
               android:layout_height="match_parent">
 
     <ImageButton
@@ -9,18 +10,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:background="#00000000"
         android:src="@drawable/logo"/>
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:id="@+id/pc"
+        android:src="@drawable/pc"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/start_button"/>
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/start_button"
+        android:layout_below="@id/pc"
         android:layout_centerHorizontal="true"
-        android:text="始めよう"
-        android:layout_marginTop="15dp"
+        android:text="新しいファッションを見つけよう。"
+        android:layout_marginTop="10dp"
         android:textSize="20sp"/>
 
 </RelativeLayout>
