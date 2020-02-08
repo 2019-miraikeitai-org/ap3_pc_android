@@ -42,8 +42,7 @@ import java.net.URL
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
 
-class MainActivity : AppCompatActivity()  {
-    //ビーコンではこれ追加 → class MainActivity : AppCompatActivity() , BeaconConsumer
+class MainActivity : AppCompatActivity(), BeaconConsumer {
 
 
     private val IBEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
@@ -60,7 +59,7 @@ class MainActivity : AppCompatActivity()  {
 
         setSampleData()
 
-/*ビーコン一旦コメントアウト
+
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager!!.beaconParsers.add(BeaconParser().setBeaconLayout(IBEACON_FORMAT))
 
@@ -79,7 +78,7 @@ class MainActivity : AppCompatActivity()  {
         beaconTransmitter.startAdvertising(beacon)
 
         beaconTransmitter.isStarted()
-*/
+
         //main()
         //get()
        // println(main())
@@ -102,7 +101,7 @@ class MainActivity : AppCompatActivity()  {
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
     }
-/*ビーコン一旦コメントアウト
+
     override fun onResume() {
         super.onResume()
         // サービスの開始
@@ -169,6 +168,49 @@ class MainActivity : AppCompatActivity()  {
                         getMajorList.add(beacon.id2.toInt())
                         Log.d("Beacon","UUID:" + beacon.id1 + "user_id:" +beacon.id2)
 
+                        val user_id = beacon.id1
+                        val a="http://150.95.156.155/users/${user_id}/all_images".httpGet()
+                            .responseString { request, response, result ->
+                                when (result) {
+                                    is Result.Failure -> {
+                                        val ex = result.getException()
+                                        println(ex)
+                                    }
+                                    is Result.Success -> {
+                                        val data = result.get()
+                                        println(data)
+
+
+                                        // mapperオブジェクトを作成
+                                        val mapper = jacksonObjectMapper()
+
+                                        // jsonをdeserialize
+                                        // 下の場合はjsonがColor型のオブジェクトにマッピングされる
+                                        val user = mapper.readValue<You>(data)
+
+
+                                        //ここを最後の写真を表示にする
+                                        println(user.image_urls[1].url)
+
+
+                                        //userの中の
+                                        // for (i in 1..3) {
+                                        //     val c = user.image_url[i].comment
+                                        //println(user.user_information[i].user_id)
+                                        //println(user.image_url[i].comment)
+
+
+                                    }
+                                    //println(user.user_id)
+                                    //println(user.name)
+                                    //println(user.age)
+
+                                    //println(user.user_name)
+                                    //println(user.user_name)
+                                    //val b = user.image_url[2].comment
+                                }
+                            }
+
                     }
 
 
@@ -178,7 +220,7 @@ class MainActivity : AppCompatActivity()  {
         })
 
     }
-    */
+
 
 
 
