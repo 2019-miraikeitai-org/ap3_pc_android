@@ -103,6 +103,8 @@
                 app:destination="@id/MypageRegistFragment1"/>
         <argument android:name="tagname"
                   app:argType="string"/>
+        <argument android:name="pic"
+                  app:argType="com.example.pc.PicData"/>
     </fragment>
 
 </navigation>
