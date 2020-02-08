@@ -10,6 +10,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.pc.MypageRegistFragment2Directions.Companion.actionMypageRegistFragment2ToMypageRegistFragment1
 import kotlinx.android.synthetic.main.fragment_mypageregist2.*
+//import android.R
+import android.widget.NumberPicker
+
+
 
 class MypageRegistFragment2: Fragment(), View.OnClickListener  {
 
@@ -17,6 +21,11 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypageregist2, container, false)
+
+        val numberPicker = view.findViewById(R.id.numberPicker) as NumberPicker
+        numberPicker.maxValue=35
+        numberPicker.minValue=0
+        numberPicker.value=5
 
 
         return view
@@ -51,6 +60,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[0]) {
                     topsb.setImageResource(R.drawable.ttopsa)
                     trig3[0] = false
+                    regist_list_mypage[k].tag12.type="tops"
                 } else {
                     topsb.setImageResource(R.drawable.ttopsb)
                     trig3[0] = true
@@ -63,6 +73,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[1]) {
                     bottomb.setImageResource(R.drawable.bottoma)
                     trig3[1] = false
+                    regist_list_mypage[k].tag12.type="bottoms"
                 } else {
                     bottomb.setImageResource(R.drawable.bottomb)
                     trig3[1] = true
@@ -74,6 +85,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[2]) {
                     shoesb.setImageResource(R.drawable.shoesa)
                     trig3[2] = false
+                    regist_list_mypage[k].tag12.type="shoes"
                 } else {
                     shoesb.setImageResource(R.drawable.shoesb)
                     trig3[2] = true
@@ -86,6 +98,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[3]) {
                     outerb.setImageResource(R.drawable.outera)
                     trig3[3] = false
+                    regist_list_mypage[k].tag12.type="outer"
                 } else {
                     outerb.setImageResource(R.drawable.outerb)
                     trig3[3] = true
@@ -98,6 +111,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[4]) {
                     bagb.setImageResource(R.drawable.baga)
                     trig3[4] = false
+                    regist_list_mypage[k].tag12.type="bag"
                 } else {
                     bagb.setImageResource(R.drawable.bagb)
                     trig3[4] = true
@@ -110,6 +124,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[5]) {
                     accessoryb.setImageResource(R.drawable.accessorya)
                     trig3[5] = false
+                    regist_list_mypage[k].tag12.type="accessory"
                 } else {
                     accessoryb.setImageResource(R.drawable.accessoryb)
                     trig3[5] = true
@@ -122,6 +137,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                 if (trig3[6]) {
                     fb.setImageResource(R.drawable.fa)
                     trig3[6] = false
+                    regist_list_mypage[k].tag12.size="f"
                 } else {
                     fb.setImageResource(R.drawable.fb)
                     trig3[6] = true

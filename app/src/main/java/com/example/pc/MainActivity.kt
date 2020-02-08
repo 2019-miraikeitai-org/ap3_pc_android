@@ -1,6 +1,7 @@
 package com.example.pc
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.RemoteException
@@ -29,10 +30,8 @@ import org.altbeacon.beacon.MonitorNotifier
 import org.altbeacon.beacon.BeaconTransmitter
 import org.altbeacon.beacon.BeaconParser
 import org.altbeacon.beacon.Beacon
-
-
-
-
+import org.w3c.dom.Comment
+import java.net.URL
 
 
 //data class Ok(val user_id: Int)
@@ -43,8 +42,7 @@ import org.altbeacon.beacon.Beacon
 //data class Js(val users: Array<User>)
 //data class User(val user_name: String)
 
-class MainActivity : AppCompatActivity()  {
-    //ビーコンではこれ追加 → class MainActivity : AppCompatActivity() , BeaconConsumer
+class MainActivity : AppCompatActivity(), BeaconConsumer {
 
 
     private val IBEACON_FORMAT = "m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"
@@ -61,7 +59,7 @@ class MainActivity : AppCompatActivity()  {
 
         setSampleData()
 
-/*ビーコン一旦コメントアウト
+
         beaconManager = BeaconManager.getInstanceForApplication(this)
         beaconManager!!.beaconParsers.add(BeaconParser().setBeaconLayout(IBEACON_FORMAT))
 
@@ -80,10 +78,11 @@ class MainActivity : AppCompatActivity()  {
         beaconTransmitter.startAdvertising(beacon)
 
         beaconTransmitter.isStarted()
-*/
+
         //main()
         get()
        // println(main())
+        imageget()
 
 
 
@@ -102,7 +101,7 @@ class MainActivity : AppCompatActivity()  {
 
         //val navController2=findNavController(R.id.my_nav_host_fragment)
     }
-/*ビーコン一旦コメントアウト
+
     override fun onResume() {
         super.onResume()
         // サービスの開始
@@ -169,6 +168,49 @@ class MainActivity : AppCompatActivity()  {
                         getMajorList.add(beacon.id2.toInt())
                         Log.d("Beacon","UUID:" + beacon.id1 + "user_id:" +beacon.id2)
 
+                        val user_id = beacon.id1
+                        val a="http://150.95.156.155/users/${user_id}/all_images".httpGet()
+                            .responseString { request, response, result ->
+                                when (result) {
+                                    is Result.Failure -> {
+                                        val ex = result.getException()
+                                        println(ex)
+                                    }
+                                    is Result.Success -> {
+                                        val data = result.get()
+                                        println(data)
+
+
+                                        // mapperオブジェクトを作成
+                                        val mapper = jacksonObjectMapper()
+
+                                        // jsonをdeserialize
+                                        // 下の場合はjsonがColor型のオブジェクトにマッピングされる
+                                        val user = mapper.readValue<You>(data)
+
+
+                                        //ここを最後の写真を表示にする
+                                        println(user.image_urls[1].url)
+
+
+                                        //userの中の
+                                        // for (i in 1..3) {
+                                        //     val c = user.image_url[i].comment
+                                        //println(user.user_information[i].user_id)
+                                        //println(user.image_url[i].comment)
+
+
+                                    }
+                                    //println(user.user_id)
+                                    //println(user.name)
+                                    //println(user.age)
+
+                                    //println(user.user_name)
+                                    //println(user.user_name)
+                                    //val b = user.image_url[2].comment
+                                }
+                            }
+
                     }
 
 
@@ -178,7 +220,7 @@ class MainActivity : AppCompatActivity()  {
         })
 
     }
-    */
+
 
 
 
@@ -188,7 +230,6 @@ class MainActivity : AppCompatActivity()  {
 
 data class Yo(val user_information: Array<User>)
 data class User(val user_id: Int,val name: String, val height: Int, val gender: String)
-
 
 fun main(){
     val httpAsync = "http://150.95.156.155/users"
@@ -201,7 +242,7 @@ fun main(){
                     }
                     is Result.Success -> {
                         val data = result.get()
-                        println(data)
+                    //    println(data)
 
 
                         // パースするJSON
@@ -220,9 +261,9 @@ fun main(){
 
                         //userの中の
                         for (i in 1..3) {
-                            val c = user.user_information[i].gender
+                            val c = user.user_information[i].height
                             //println(user.user_information[i].user_id)
-                            // println(user.user_information[i].gender)
+                             println(user.user_information[i].height)
 
 
                         }
@@ -310,6 +351,12 @@ val sample_user_list_all = mutableListOf<User_sample>()
 val user_list_men = mutableListOf<User_sample>()
 val user_list_women = mutableListOf<User_sample>()
 val user_list_favorite = mutableListOf<User_sample>()
+var regist_list_mypage = mutableListOf(Picture_uri(
+    Uri.parse("android.resource://com.example.pc/drawable/codew0.JPG"), "text1",
+    Tag("TEE", "NIKE", "L", 8000),
+    Tag("Jacket","NIKE", "FREE", 14000),
+    Tag("BOTTOM", "NIKE", "L", 9000),
+    Tag("SHOES", "ADIDAS","27", 12000)))
 fun setSampleData() {
     sample_user_list_all.add(User_sample(0,"Neymar", 175, true,
         Picture(R.drawable.codem1, "text1",
@@ -368,3 +415,53 @@ fun setSampleData() {
     //"http://160.16.103.99/users".httpPost().header("Content-Type" to "application/json").body(personJson.toString()).response { req, res, result ->
     //Ought to be a Success!
     //}
+
+data class You(val image_urls: Array<Useru>)
+data class Useru(val image_id: Int,val user_id: Int, val url: String, val comment: String, val good_count: Int)
+
+
+
+fun imageget() {
+    val user_id = 2
+    val a="http://150.95.156.155/users/${user_id}/all_images".httpGet()
+        .responseString { request, response, result ->
+            when (result) {
+                is Result.Failure -> {
+                    val ex = result.getException()
+                    println(ex)
+                }
+                is Result.Success -> {
+                    val data = result.get()
+                    println(data)
+
+
+                    // mapperオブジェクトを作成
+                    val mapper = jacksonObjectMapper()
+
+                    // jsonをdeserialize
+                    // 下の場合はjsonがColor型のオブジェクトにマッピングされる
+                    val user = mapper.readValue<You>(data)
+
+                    
+                    //この写真を飛ばして
+                    println(user.image_urls[1].url)
+
+
+                    //userの中の
+                   // for (i in 1..3) {
+                   //     val c = user.image_url[i].comment
+                        //println(user.user_information[i].user_id)
+                        //println(user.image_url[i].comment)
+
+
+                }
+                    //println(user.user_id)
+                    //println(user.name)
+                    //println(user.age)
+
+                    //println(user.user_name)
+                    //println(user.user_name)
+                    //val b = user.image_url[2].comment
+            }
+        }
+}

@@ -1,10 +1,10 @@
 package com.example.pc
 
 class Picture (
-    val picture_id : Int,
-    val picture_text : String,
-    val tag1 : Tag,
-    val tag2 : Tag,
-    val tag3 : Tag,
-    val tag4 : Tag
+    var picture_id : Int,
+    var picture_text : String,
+    var tag1 : Tag,
+    var tag2 : Tag,
+    var tag3 : Tag,
+    var tag4 : Tag
 )

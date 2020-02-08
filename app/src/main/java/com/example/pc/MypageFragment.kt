@@ -11,13 +11,14 @@ import android.widget.ImageButton
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore.Images.Media.getBitmap
+import android.widget.ListView
+import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_favorite.*
-import kotlinx.android.synthetic.main.fragment_mypage.imageView
-import kotlinx.android.synthetic.main.fragment_tab1.*
+import kotlinx.android.synthetic.main.list_item3.*
+import kotlinx.android.synthetic.main.list_item3.view.*
 import java.io.IOException
 
 
@@ -32,22 +33,17 @@ class MypageFragment : Fragment(), View.OnClickListener{
     private val args: MypageFragmentArgs by navArgs()
 
 
-    //コピー用の配列を用意
-    //var btn = arrayOfNulls<ImageButton>(4)
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
-
-
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
-
 
 
         return view
@@ -58,10 +54,6 @@ class MypageFragment : Fragment(), View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
 
 
-        /*if(abc) {
-            comment.text = args.content
-            abc = false
-        }*/
 
         set_button.setOnClickListener(this)
         cloth_after1.setOnClickListener(this)
@@ -70,12 +62,26 @@ class MypageFragment : Fragment(), View.OnClickListener{
         aroma_before.setOnClickListener(this)
         add_button.setOnClickListener(this)
 
+        val listItem = ArrayList<Picture_uri>()
+        for (user in regist_list_mypage){
+            listItem.add(user)
+        }
+        listItem.reverse()
 
-        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(profile);
 
+        val adapter = ListAdapter3(this.requireContext(), R.layout.list_item3, listItem)
+        val listView: ListView = view.findViewById(R.id.mypage_listView)
+        listView.adapter = adapter
 
+        //if(regist_list_mypage.isNotEmpty()){
+        //    my_picture.setImageResource(regist_list_mypage.picture_id)
+        //}
 
+        //if(args.content!=null){
+         //   comment.text = args.content
+        //}
 
+            Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(profile);
 
     }
 
@@ -85,13 +91,15 @@ class MypageFragment : Fragment(), View.OnClickListener{
             val uri: Uri?
             if (resultData != null) {
                 uri = resultData.data
+                regist_list_mypage[0].picture_id_uri=uri
                 System.out.println(uri)
                 try {
-                    val bitmap = getBitmap(getActivity()?.getContentResolver(), uri)
-                    imageView.setImageBitmap(bitmap)
-                    //val clothpicture = bitmap
-                    //val action = MypageFragmentDirections.actionMypageToRegist1(clothpicture)
-                    //findNavController().navigate(action)
+                    val bitmap = getBitmap(activity?.getContentResolver(), uri)
+                    //                    //listView.imageView.setImageBitmap(bitmap)
+                    //                    //mypage_listView.my_picture.setImageBitmap(bitmap)
+                    val pic = bitmap
+                    val action = MypageFragmentDirections.actionMypageToRegist1(PicData(pic))
+                    findNavController().navigate(action)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
@@ -99,6 +107,8 @@ class MypageFragment : Fragment(), View.OnClickListener{
             }
         }
     }
+
+
 
 
 
@@ -174,7 +184,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
 
 
                 //フラグメント移動
-                findNavController().navigate(R.id.action_mypage_to_regist1)
+                //findNavController().navigate(R.id.action_mypage_to_regist1)
 
 
 

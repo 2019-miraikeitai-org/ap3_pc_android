@@ -32,12 +32,13 @@ class Fragment: Fragment() , View.OnClickListener {
 
             R.id.start_button -> {
 
-                val content = "sumple"
-
-
                 // 生成されたクラスに引数を渡して遷移
                 //val action = FragmentDirections.actionFragmentToNavigationHome(content)
-                findNavController().navigate(R.id.action_fragment_to_navigation_home)
+                //findNavController().navigate(R.id.action_fragment_to_navigation_home)
+
+                val action = FragmentDirections.actionFragmentToNavigationHome()
+
+                findNavController().navigate(action)
             }
 
 
