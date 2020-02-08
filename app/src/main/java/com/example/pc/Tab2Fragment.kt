@@ -23,7 +23,7 @@ class Tab2Fragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val gridItem = ArrayList<Int>()
+        val gridItem = ArrayList<String>()
         for (user in user_list_women){
             gridItem.add(user.picture.picture_id)
         }
