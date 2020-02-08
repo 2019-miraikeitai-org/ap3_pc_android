@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
@@ -18,18 +15,12 @@ import kotlinx.android.synthetic.main.fragment_mypage.*
 import kotlinx.android.synthetic.main.fragment_mypage.view.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.*
 import kotlinx.android.synthetic.main.fragment_mypageregist1.view.*
-import android.widget.NumberPicker
 import androidx.navigation.fragment.navArgs
-import android.widget.LinearLayout
 import android.R.attr.bitmap
 import android.graphics.Bitmap
 //import android.R
 import android.graphics.BitmapFactory
-
-
-
-
-
+import android.widget.*
 
 
 var k : Int = 0
@@ -37,12 +28,17 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
 
     private val args3: MypageRegistFragment1Args by navArgs()
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypageregist1, container, false)
 
+
         // bitmapの画像リサイズ
+
+        var picture = view.findViewById(R.id.picture) as ImageView
         val bitmap2 = Bitmap.createScaledBitmap(args3.pic.pic, 675, 925, false)
         picture.setImageBitmap(bitmap2)
+
 
 
 
@@ -88,8 +84,9 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                     trig2[0] = false
 
                     val tagname = "Tag1"
+                    val pic=args3.pic.pic
                     // 生成されたクラスに引数を渡して遷移
-                    val ac1 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname)
+                    val ac1 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname,PicData(pic))
                     findNavController().navigate(ac1)
 
                 } else {
@@ -106,8 +103,9 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                     trig2[1] = false
 
                     val tagname = "Tag2"
+                    val pic=args3.pic.pic
                     // 生成されたクラスに引数を渡して遷移
-                    val ac2 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname)
+                    val ac2 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname,PicData(pic))
                     findNavController().navigate(ac2)
                 } else {
                     bottomsb.setImageResource(R.drawable.tag2)
@@ -123,8 +121,9 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                     trig2[2] = false
 
                     val tagname = "Tag3"
+                    val pic=args3.pic.pic
                     // 生成されたクラスに引数を渡して遷移
-                    val ac3 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname)
+                    val ac3 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname,PicData(pic))
                     findNavController().navigate(ac3)
                 } else {
                     accb.setImageResource(R.drawable.tag3)
@@ -139,8 +138,9 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                     trig2[3] = false
 
                     val tagname = "Tag4"
+                    val pic=args3.pic.pic
                     // 生成されたクラスに引数を渡して遷移
-                    val ac4 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname)
+                    val ac4 =MypageRegistFragment1Directions.actionMypageRegistFragment1ToMypageRegistFragment2(tagname,PicData(pic))
                     findNavController().navigate(ac4)
                 } else {
                     moreb.setImageResource(R.drawable.tag4)

@@ -166,6 +166,7 @@
             android:background="#00000000"
             android:src="@drawable/xlb"/>
 
+
         <TextView
             android:id="@+id/brands"
             android:layout_width="wrap_content"
@@ -176,11 +177,43 @@
             android:text="BRANDS"
             android:textSize="15sp"/>
 
+        <ImageButton
+            android:id="@+id/brand1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/brands"
+            android:layout_alignLeft="@+id/brands"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:background="#00000000"
+            android:src="@drawable/brand1b"/>
+
+        <ImageButton
+            android:id="@+id/brand2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/brand1"
+            android:layout_toRightOf="@+id/brand1"
+            android:layout_marginRight="5dp"
+            android:background="#00000000"
+            android:src="@drawable/brand2b"/>
+
+        <ImageButton
+            android:id="@+id/brand3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/brand1"
+            android:layout_toRightOf="@+id/brand2"
+            android:layout_marginRight="5dp"
+            android:background="#00000000"
+            android:src="@drawable/brand3b"/>
+
+
         <EditText
             android:id="@+id/brands_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/brands"/>
+            android:layout_below="@id/brand1"/>
 
         <TextView
             android:id="@+id/price"
@@ -198,6 +231,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/price"/>
+
+
+        <ImageButton
+            android:id="@+id/tagrg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/numberPicker"
+            android:layout_alignLeft="@+id/brands"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="5dp"
+            android:background="#00000000"
+            android:src="@drawable/filterb"/>
+
+
 
 
     </RelativeLayout>
