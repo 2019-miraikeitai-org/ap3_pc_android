@@ -23,8 +23,8 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
         val view = inflater.inflate(R.layout.fragment_mypageregist2, container, false)
 
         val numberPicker = view.findViewById(R.id.numberPicker) as NumberPicker
-        numberPicker.maxValue=35
-        numberPicker.minValue=0
+        numberPicker.maxValue=1500
+        numberPicker.minValue=1000
         numberPicker.value=5
 
 
