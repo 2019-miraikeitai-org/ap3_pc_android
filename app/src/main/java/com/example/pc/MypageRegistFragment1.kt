@@ -145,9 +145,10 @@ class MypageRegistFragment1 : Fragment(),View.OnClickListener {
                 //val edittext = view.findViewById(R.id.edit_text)  as EditText
                 val content = edit_text.text.toString()
 
+                abc = true
 
                 // 生成されたクラスに引数を渡して遷移
-                val action =MypageRegistFragment1Directions.actionRegist1ToMypage(content)
+                val action = MypageRegistFragment1Directions.actionRegist1ToMypage(content)
                 findNavController().navigate(action)
 
 

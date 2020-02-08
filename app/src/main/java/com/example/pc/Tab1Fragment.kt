@@ -13,10 +13,6 @@ import kotlinx.android.synthetic.main.fragment_tab1.*
 
 class Tab1Fragment: Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -27,7 +23,7 @@ class Tab1Fragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val gridItem = ArrayList<Int>()
-        for (user in user_list_men){
+        for (user in user_list_men) {
             gridItem.add(user.picture.picture_id)
         }
 
@@ -39,6 +35,8 @@ class Tab1Fragment: Fragment() {
             interim_position = user_list_men[i].user_id
             findNavController().navigate(R.id.detail)
         }
+    }
+}
 
 /*        Picasso.with(context)
             .load("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwd0-rYWZSIgQOcSgON9lnAI_IM_CnHEWGhcR6XP9ZgbUC3APp")
@@ -48,24 +46,4 @@ class Tab1Fragment: Fragment() {
             .into(code2)
         Picasso.with(context)
             .load("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon")
-            .into(code3)
-
-        //crashする
-        code1.setOnClickListener {
-            findNavController().navigate(
-                Tab1FragmentDirections.actionTab1ToDetail2(
-                    content = "hogehoge"
-                )
-            )
-        }
-
-        code2.setOnClickListener {
-            Toast.makeText(this.requireContext(), "item clicked.", Toast.LENGTH_SHORT).show()
-        }
-
-        code3.setOnClickListener {
-            Toast.makeText(this.requireContext(), "item clicked.", Toast.LENGTH_SHORT).show()
-        }*/
-    }
-}
-
+            .into(code3)*/

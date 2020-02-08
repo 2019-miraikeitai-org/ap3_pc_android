@@ -57,9 +57,11 @@ class MypageFragment : Fragment(), View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        comment.text = args.content
 
-
+        /*if(abc) {
+            comment.text = args.content
+            abc = false
+        }*/
 
         set_button.setOnClickListener(this)
         cloth_after1.setOnClickListener(this)
@@ -69,7 +71,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         add_button.setOnClickListener(this)
 
 
-            Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(profile);
+        Picasso.with(context).load("http://i.imgur.com/DvpvklR.png").into(profile);
 
 
 
