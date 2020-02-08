@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 class DetailFragment : Fragment() {
@@ -35,7 +36,8 @@ class DetailFragment : Fragment() {
         val height: String = sample_user_list_all[p].user_height.toString() + "cm"
         text_height.text = height
         text_gender.text = if (sample_user_list_all[p].user_gender) "MEN" else "WOMEN"
-        detail_picture.setImageResource(sample_user_list_all[p].picture.picture_id)
+//        detail_picture.setImageResource(sample_user_list_all[p].picture.picture_id)
+        Picasso.with(context).load(sample_user_list_all[p].picture.picture_id).into(detail_picture)
         text.text = sample_user_list_all[p].picture.picture_text
 
 //        tag1.text = sample_user_list_all[p].picture.tag1.type

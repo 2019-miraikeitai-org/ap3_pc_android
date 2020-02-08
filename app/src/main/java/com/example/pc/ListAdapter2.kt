@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 
 class ListAdapter2(private var ctx: Context, var resource: Int, var item: List<User_sample>)
     : ArrayAdapter<User_sample>(ctx, resource, item){
@@ -22,7 +23,8 @@ class ListAdapter2(private var ctx: Context, var resource: Int, var item: List<U
 
         val item: User_sample = item[position]
 
-        imageView.setImageResource(item.picture.picture_id)
+//        imageView.setImageResource(item.picture.picture_id)
+        Picasso.with(context).load(item.picture.picture_id).into(imageView)
         name.text = item.user_name
         val h: String = item.user_height.toString() + "cm"
         height.text = h

@@ -315,7 +315,7 @@ fun get() {
                     sample_user_list_all.add(
                         User_sample(count, id.name, id.height, gen,
                             Picture(
-                                R.drawable.codem1, "text1",
+                                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwd0-rYWZSIgQOcSgON9lnAI_IM_CnHEWGhcR6XP9ZgbUC3APp", "text1",
                                 Tag("TEE", "NIKE", "L", 8000),
                                 Tag("Jacket", "NIKE", "FREE", 14000),
                                 Tag("BOTTOM", "NIKE", "L", 9000),
@@ -359,43 +359,43 @@ var regist_list_mypage = mutableListOf(Picture_uri(
     Tag("SHOES", "ADIDAS","27", 12000)))
 fun setSampleData() {
     sample_user_list_all.add(User_sample(0,"Neymar", 175, true,
-        Picture(R.drawable.codem1, "text1",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwd0-rYWZSIgQOcSgON9lnAI_IM_CnHEWGhcR6XP9ZgbUC3APp", "text1",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(1,"Cavani", 185, true,
-        Picture(R.drawable.codem2, "text2",
+        Picture("https://www.soccer-king.jp/wp-content/uploads/2013/06/CAVANI-1.jpg", "text2",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(2,"Mbappé", 178, true,
-        Picture(R.drawable.codem3, "text3",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon", "text3",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(3,"Rin", 165, false,
-        Picture(R.drawable.codew0, "text4",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon", "text4",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(4,"Hina", 167, false,
-        Picture(R.drawable.codew1, "text5",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon", "text5",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(5,"Yua", 159, false,
-        Picture(R.drawable.codew2, "text6",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon", "text6",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
             Tag("SHOES", "ADIDAS","27", 12000))))
     sample_user_list_all.add(User_sample(6,"An", 154, false,
-        Picture(R.drawable.codew3, "text7",
+        Picture("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR4YSkiLvxwlLIuHgsdE8Fk5agwtUE6Hkdfk7AL33jxN6zWkRon", "text7",
             Tag("TEE", "NIKE", "L", 8000),
             Tag("Jacket","NIKE", "FREE", 14000),
             Tag("BOTTOM", "NIKE", "L", 9000),
