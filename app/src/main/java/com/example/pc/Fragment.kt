@@ -33,6 +33,9 @@ class Fragment: Fragment() , View.OnClickListener {
             R.id.start_button -> {
 
                 // 生成されたクラスに引数を渡して遷移
+                //val action = FragmentDirections.actionFragmentToNavigationHome(content)
+                //findNavController().navigate(R.id.action_fragment_to_navigation_home)
+
                 val action = FragmentDirections.actionFragmentToNavigationHome()
 
                 findNavController().navigate(action)

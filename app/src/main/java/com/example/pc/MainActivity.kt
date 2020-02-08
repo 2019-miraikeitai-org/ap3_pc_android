@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         beaconTransmitter.isStarted()
 
         //main()
-        //get()
+        get()
        // println(main())
         imageget()
 
@@ -299,6 +299,39 @@ fun get() {
             is Result.Success -> {
                 val data = result.get()
                 println(data)
+                val mapper = jacksonObjectMapper()
+
+
+                // jsonをdeserialize
+                // 下の場合はjsonがColor型のオブジェクトにマッピングされる
+                val user = mapper.readValue<Yo>(data)
+
+                //println(user.user_information[0].name)
+
+                var count = 7
+                var gen = true
+                for(id in user.user_information) {
+                    if (id.gender == "1") gen = false
+                    sample_user_list_all.add(
+                        User_sample(count, id.name, id.height, gen,
+                            Picture(
+                                R.drawable.codem1, "text1",
+                                Tag("TEE", "NIKE", "L", 8000),
+                                Tag("Jacket", "NIKE", "FREE", 14000),
+                                Tag("BOTTOM", "NIKE", "L", 9000),
+                                Tag("SHOES", "ADIDAS", "27", 12000)
+                            )
+                        )
+                    )
+                    val u = sample_user_list_all[count]
+                    if (gen){
+                        user_list_men.add(u)
+                    } else {
+                        user_list_women.add(u)
+                    }
+                    count++
+                }
+
 
             }
             // ステータスコード 2xx以外
@@ -311,6 +344,7 @@ fun get() {
 }
 
 
+var abc: Boolean = false
 var interim_position: Int = 0
 
 val sample_user_list_all = mutableListOf<User_sample>()

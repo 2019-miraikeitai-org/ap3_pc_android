@@ -54,6 +54,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
 
 
+
         set_button.setOnClickListener(this)
         cloth_after1.setOnClickListener(this)
         hair_before.setOnClickListener(this)
@@ -66,6 +67,7 @@ class MypageFragment : Fragment(), View.OnClickListener{
             listItem.add(user)
         }
         listItem.reverse()
+
 
         val adapter = ListAdapter3(this.requireContext(), R.layout.list_item3, listItem)
         val listView: ListView = view.findViewById(R.id.mypage_listView)

@@ -115,7 +115,7 @@
             app:layout_constraintRight_toRightOf="@id/detail_picture"
             app:layout_constraintHorizontal_bias="0.95">
 
-            <TextView
+            <Spinner
                 android:id="@+id/tag1"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
                 app:layout_constraintLeft_toLeftOf="@+id/tags"
                 app:layout_constraintRight_toRightOf="@+id/tags"/>
 
-            <TextView
+            <Spinner
                 android:id="@+id/tag2"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                 app:layout_constraintLeft_toLeftOf="@+id/tags"
                 app:layout_constraintRight_toRightOf="@+id/tags"/>
 
-            <TextView
+            <Spinner
                 android:id="@+id/tag3"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
                 app:layout_constraintLeft_toLeftOf="@+id/tags"
                 app:layout_constraintRight_toRightOf="@+id/tags"/>
 
-            <TextView
+            <Spinner
                 android:id="@+id/tag4"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
