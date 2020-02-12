@@ -193,6 +193,32 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
                                         println(user.image_urls[1].url)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        //////////image_urls[1].urlとimage_urls[1].comment入ってるからこれを表示させて
+
+
+
+
+
+
+
+
+
+
+
+
                                         //userの中の
                                         // for (i in 1..3) {
                                         //     val c = user.image_url[i].comment
