@@ -12,6 +12,9 @@ import com.example.pc.MypageRegistFragment2Directions.Companion.actionMypageRegi
 import kotlinx.android.synthetic.main.fragment_mypageregist2.*
 //import android.R
 import android.widget.NumberPicker
+//import android.R
+
+
 
 
 
@@ -22,21 +25,29 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypageregist2, container, false)
 
+
+        var start = 1000
+        val numbers = arrayOfNulls<String>(20)
+        for (i in 0..19) {
+            numbers[i] = start.toString() + ""
+            start = start + 1000
+        }
+
         val numberPicker = view.findViewById(R.id.numberPicker) as NumberPicker
-        numberPicker.maxValue=1500
-        numberPicker.minValue=1000
-        numberPicker.value=5
+        numberPicker.maxValue = 20
+        numberPicker.minValue = 1
+        numberPicker.displayedValues = numbers
 
 
         return view
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         tagname.text = args2.tagname
-
-
 
         tops.setOnClickListener(this)
         bottoms.setOnClickListener(this)
@@ -52,6 +63,7 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
         brand1.setOnClickListener(this)
         brand2.setOnClickListener(this)
         brand3.setOnClickListener(this)
+        tagrg.setOnClickListener(this)
         back.setOnClickListener(this)
     }
 
@@ -66,13 +78,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     topsb.setImageResource(R.drawable.ttopsa)
                     trig3[0] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="tops"
+                        regist_list_mypage[k].tag12.type="Tops"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="tops"
+                        regist_list_mypage[k].tag22.type="Tops"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="tops"
+                        regist_list_mypage[k].tag32.type="Tops"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="tops"
+                        regist_list_mypage[k].tag42.type="Tops"
                     }
 
                 } else {
@@ -88,13 +100,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     bottomb.setImageResource(R.drawable.bottoma)
                     trig3[1] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="bottoms"
+                        regist_list_mypage[k].tag12.type="Bottoms"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="bottoms"
+                        regist_list_mypage[k].tag22.type="Bottoms"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="bottoms"
+                        regist_list_mypage[k].tag32.type="Bottoms"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="bottoms"
+                        regist_list_mypage[k].tag42.type="Bottoms"
                     }
 
                 } else {
@@ -109,13 +121,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     shoesb.setImageResource(R.drawable.shoesa)
                     trig3[2] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="shoes"
+                        regist_list_mypage[k].tag12.type="Shoes"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="shoes"
+                        regist_list_mypage[k].tag22.type="Shoes"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="shoes"
+                        regist_list_mypage[k].tag32.type="Shoes"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="shoes"
+                        regist_list_mypage[k].tag42.type="Shoes"
                     }
                 } else {
                     shoesb.setImageResource(R.drawable.shoesb)
@@ -130,13 +142,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     outerb.setImageResource(R.drawable.outera)
                     trig3[3] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="outer"
+                        regist_list_mypage[k].tag12.type="Outer"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="outer"
+                        regist_list_mypage[k].tag22.type="Outer"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="outer"
+                        regist_list_mypage[k].tag32.type="Outer"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="outer"
+                        regist_list_mypage[k].tag42.type="Outer"
                     }
 
                 } else {
@@ -152,13 +164,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     bagb.setImageResource(R.drawable.baga)
                     trig3[4] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="bag"
+                        regist_list_mypage[k].tag12.type="Bag"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="bag"
+                        regist_list_mypage[k].tag22.type="Bag"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="bag"
+                        regist_list_mypage[k].tag32.type="Bag"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="bag"
+                        regist_list_mypage[k].tag42.type="Bag"
                     }
                 } else {
                     bagb.setImageResource(R.drawable.bagb)
@@ -173,13 +185,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     accessoryb.setImageResource(R.drawable.accessorya)
                     trig3[5] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.type="accessory"
+                        regist_list_mypage[k].tag12.type="Accessory"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.type="accessory"
+                        regist_list_mypage[k].tag22.type="Accessory"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.type="accessory"
+                        regist_list_mypage[k].tag32.type="Accessory"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.type="accessory"
+                        regist_list_mypage[k].tag42.type="Accessory"
                     }
                 } else {
                     accessoryb.setImageResource(R.drawable.accessoryb)
@@ -194,13 +206,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     fb.setImageResource(R.drawable.fa)
                     trig3[6] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.size="f"
+                        regist_list_mypage[k].tag12.size="F"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.size="f"
+                        regist_list_mypage[k].tag22.size="F"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.size="f"
+                        regist_list_mypage[k].tag32.size="F"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.size="f"
+                        regist_list_mypage[k].tag42.size="F"
                     }
                 } else {
                     fb.setImageResource(R.drawable.fb)
@@ -215,13 +227,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     sb.setImageResource(R.drawable.sa)
                     trig3[7] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.size="s"
+                        regist_list_mypage[k].tag12.size="S"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.size="s"
+                        regist_list_mypage[k].tag22.size="S"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.size="s"
+                        regist_list_mypage[k].tag32.size="S"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.size="s"
+                        regist_list_mypage[k].tag42.size="S"
                     }
                 } else {
                     sb.setImageResource(R.drawable.sb)
@@ -236,13 +248,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     mb.setImageResource(R.drawable.ma)
                     trig3[8] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.size="m"
+                        regist_list_mypage[k].tag12.size="M"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.size="m"
+                        regist_list_mypage[k].tag22.size="M"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.size="m"
+                        regist_list_mypage[k].tag32.size="M"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.size="m"
+                        regist_list_mypage[k].tag42.size="M"
                     }
                 } else {
                     mb.setImageResource(R.drawable.mb)
@@ -257,13 +269,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     lb.setImageResource(R.drawable.la)
                     trig3[9] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.size="l"
+                        regist_list_mypage[k].tag12.size="L"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.size="l"
+                        regist_list_mypage[k].tag22.size="L"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.size="l"
+                        regist_list_mypage[k].tag32.size="L"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.size="l"
+                        regist_list_mypage[k].tag42.size="L"
                     }
                 } else {
                     lb.setImageResource(R.drawable.lb)
@@ -277,13 +289,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     xlb.setImageResource(R.drawable.xla)
                     trig3[10] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.size="xl"
+                        regist_list_mypage[k].tag12.size="XL"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.size="xl"
+                        regist_list_mypage[k].tag22.size="XL"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.size="xl"
+                        regist_list_mypage[k].tag32.size="XL"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.size="xl"
+                        regist_list_mypage[k].tag42.size="XL"
                     }
                 } else {
                     xlb.setImageResource(R.drawable.xlb)
@@ -298,13 +310,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     brand1b.setImageResource(R.drawable.brand1a)
                     trig3[11] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.brand="brand1"
+                        regist_list_mypage[k].tag12.brand="Brand1"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.brand="brand1"
+                        regist_list_mypage[k].tag22.brand="Brand1"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.brand="brand1"
+                        regist_list_mypage[k].tag32.brand="Brand1"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.brand="brand1"
+                        regist_list_mypage[k].tag42.brand="Brand1"
                     }
                 } else {
                     brand1b.setImageResource(R.drawable.brand1b)
@@ -319,13 +331,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     brand2b.setImageResource(R.drawable.brand2a)
                     trig3[12] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.brand="brand2"
+                        regist_list_mypage[k].tag12.brand="Brand2"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.brand="brand2"
+                        regist_list_mypage[k].tag22.brand="Brand2"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.brand="brand2"
+                        regist_list_mypage[k].tag32.brand="Brand2"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.brand="brand2"
+                        regist_list_mypage[k].tag42.brand="Brand2"
                     }
                 } else {
                     brand2b.setImageResource(R.drawable.brand2b)
@@ -339,13 +351,13 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
                     brand3b.setImageResource(R.drawable.brand3a)
                     trig3[13] = false
                     if(args2.tagname=="Tag1"){
-                        regist_list_mypage[k].tag12.brand="brand3"
+                        regist_list_mypage[k].tag12.brand="Brand3"
                     }else if(args2.tagname=="Tag2"){
-                        regist_list_mypage[k].tag22.brand="brand3"
+                        regist_list_mypage[k].tag22.brand="Brand3"
                     }else if(args2.tagname=="Tag3"){
-                        regist_list_mypage[k].tag32.brand="brand3"
+                        regist_list_mypage[k].tag32.brand="Brand3"
                     }else if(args2.tagname=="Tag4"){
-                        regist_list_mypage[k].tag42.brand="brand3"
+                        regist_list_mypage[k].tag42.brand="Brand3"
                     }
                 } else {
                     brand3b.setImageResource(R.drawable.brand3b)
@@ -354,13 +366,27 @@ class MypageRegistFragment2: Fragment(), View.OnClickListener  {
             }
 
 
-
-
-
-
-
-
             R.id.back -> {
+                val pic=args2.pic
+                val action = MypageRegistFragment2Directions.actionMypageRegistFragment2ToMypageRegistFragment1(pic)
+                findNavController().navigate(action)
+
+            }
+
+
+            R.id.tagrg -> {
+                val filterb = view.findViewById(R.id.tagrg) as ImageButton
+                filterb.setImageResource(R.drawable.filtera)
+
+                if(args2.tagname=="Tag1"){
+                    regist_list_mypage[k].tag12.price=numberPicker.getValue()*1000
+                }else if(args2.tagname=="Tag2"){
+                    regist_list_mypage[k].tag22.price=numberPicker.getValue()*1000
+                }else if(args2.tagname=="Tag3"){
+                    regist_list_mypage[k].tag32.price=numberPicker.getValue()*1000
+                }else if(args2.tagname=="Tag4"){
+                    regist_list_mypage[k].tag42.price=numberPicker.getValue()*1000
+                }
                 val pic=args2.pic
                 val action = MypageRegistFragment2Directions.actionMypageRegistFragment2ToMypageRegistFragment1(pic)
                 findNavController().navigate(action)
