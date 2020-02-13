@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
 
         val beacon = Beacon.Builder()
             .setId1(UUID)
-            .setId2("12345")
+            .setId2("3")
             .setId3("80")
             .setManufacturer(0x004C)
             .build()
@@ -168,7 +168,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
                         getMajorList.add(beacon.id2.toInt())
                         Log.d("Beacon","UUID:" + beacon.id1 + "user_id:" +beacon.id2)
 
-                        val user_id = beacon.id1
+                        val user_id = beacon.id2
                         val a="http://150.95.156.155/users/${user_id}/all_images".httpGet()
                             .responseString { request, response, result ->
                                 when (result) {
